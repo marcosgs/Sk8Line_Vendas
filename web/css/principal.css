@@ -1,0 +1,21 @@
+body {
+    font-family: "Crimson Text", "Times New Roman", serif;
+    font-size: 120%;
+    line-height:1.5;
+}
+
+h1 {
+    font-family: "Open Sans Condensed", "Arial", sans-serif;
+}
+
+.logoLogin{
+    max-width: 250px;
+    max-height: 300px;
+}
+
+.container-login{
+    position:absolute;
+    left:40%;
+    top:30%;
+    
+}

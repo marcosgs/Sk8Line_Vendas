@@ -3,12 +3,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Sk8Line - Vendas</title>
+        <title>Sk8Line - Login</title>
+        <link rel="icon" href="imagens/logo_sk8line.jpg"/>
+        <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+        <link rel="StyleSheet" type="text/css" href="css/principal.css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
     </h:head>
     <h:body>
-        <h1> Login</h1>
-        
-        
+        <div class="container-login">
+            <div > <img class="logoLogin" src="imagens/logo_sk8line.jpg"/></div>
+            <h:form>
+                <h:panelGrid>
+                    <div>
+                        <div>Usuário: </div>
+                        <div><h:inputText id="usuario" value="#{loginMB.usuario}" /></div>
+                    </div>
+                    <div>
+                        <div>Senha: </div>
+                        <div><h:inputSecret id="senha" value="#{loginMB.senha}"/></div>
+                    </div>
+                    <div>
+                        <h:commandButton id="logon" value="Logar" action="#{loginMB.validarLogon}"/>
+                    </div>
+                </h:panelGrid>
+            </h:form>
+        </div>
     </h:body>
 </html>
 
