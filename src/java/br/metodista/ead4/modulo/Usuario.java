@@ -14,7 +14,7 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 @SequenceGenerator(name = "USU_SEQ",sequenceName = "USUARIO_SEQ", initialValue = 1  ,allocationSize = 1 )
-public class CadUsuario implements Serializable{
+public class Usuario implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "USU_SEQ")
