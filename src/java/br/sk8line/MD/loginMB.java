@@ -1,23 +1,29 @@
 package br.sk8line.MD;
 
+import br.sk8line.ejb.UsuarioLocal;
+import br.sk8line.modulo.Usuario;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class loginMB {
-    private String usuario;
+    
+    private Usuario usuario = new Usuario();
+    
+    private String login;
     private String senha;
     
-    private String usuarioSist ="root";
-    private String senhaSist = "root";
+    @EJB
+    private UsuarioLocal ejb;
     
-    public void setUsuario(String usuario){
-        this.usuario=usuario;
+    public void setLogin(String login){
+        this.login=login;
     }
     
-    public String getUsuario(){
-        return usuario;
+    public String getLogin(){
+        return login;
     }
     
     public void setSenha(String senha){
@@ -30,8 +36,10 @@ public class loginMB {
     
     public String validarLogon(){
         
+        usuario = ejb.consultarPorLogin(login);
+        
         //if (this.usuario == this.usuarioSist && this.senha == this.senhaSist){ 
-        if (this.usuario.equals(usuarioSist) && this.senha.equals(senhaSist)){
+        if (this.login.equals(usuario.getLogin()) && this.senha.equals(usuario.getSenha())){
             FacesMessage msg = new FacesMessage("Usuário e senha são válidos!");
             FacesContext.getCurrentInstance().addMessage("erro",msg);
         }else{
