@@ -1,4 +1,4 @@
-package br.metodista.ead;
+package br.sk8line.MD;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
