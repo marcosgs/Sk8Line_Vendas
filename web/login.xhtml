@@ -5,29 +5,31 @@
     <h:head>
         <title>Sk8Line - Login</title>
         <link rel="icon" href="imagens/logo_sk8line.jpg"/>
-        <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
         <link rel="StyleSheet" type="text/css" href="css/principal.css"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
     </h:head>
     <h:body>
-        <div class="container-login">
-            <div > <img class="logoLogin" src="imagens/logo_sk8line.jpg"/></div>
-            <h:form>
-                <h:panelGrid>
-                    <div>
-                        <div>Usuário: </div>
-                        <div><h:inputText id="usuario" value="#{loginMB.login}" /></div>
-                    </div>
-                    <div>
-                        <div>Senha: </div>
-                        <div><h:inputSecret id="senha" value="#{loginMB.senha}"/></div>
-                    </div>
-                    <div>
-                        <h:commandButton id="logon" value="Logar" action="#{loginMB.validarLogon}"/>
-                    </div>
-                </h:panelGrid>
-            </h:form>
+        <div class="container">
+            <div class="container-login">
+                <div> <img class="logoLogin" src="imagens/logo_sk8line.jpg"/></div>
+                <h:form>
+                    <h:panelGrid>
+                        <div>
+                            <div>Usuário: </div>
+                            <div><h:inputText id="usuario" value="#{loginMB.login}" /></div>
+                        </div>
+                        <div>
+                            <div>Senha: </div>
+                            <div><h:inputSecret id="senha" value="#{loginMB.senha}"/></div>
+                        </div>
+                        <div>
+                            <h:commandButton id="logon" value="Logar" action="#{loginMB.validarLogin}"/>
+                        </div>
+                    </h:panelGrid>
+                </h:form>
+            </div>
         </div>
     </h:body>
 </html>

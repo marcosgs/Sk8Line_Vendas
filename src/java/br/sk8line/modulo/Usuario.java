@@ -7,10 +7,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Column;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@NamedQueries({
+  @NamedQuery(name = "Usuario.consultarTodos",
+              query= "SELECT u FROM Usuario u"),
+    
+  @NamedQuery(name = "Usuario.login",
+              query = " SELECT u " +
+                      " FROM Usuario u" +
+                      " WHERE u.login = :login ")
+})
 
 @Entity
+@Table(name="TB_USERS")
 @SequenceGenerator(name="USERS_SEQ",sequenceName="USERS_SEQ",initialValue=1, allocationSize=1)
 public class Usuario implements Serializable{
+       
+    private static final long serialVersionUID = 7516813189218268079L;            
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
