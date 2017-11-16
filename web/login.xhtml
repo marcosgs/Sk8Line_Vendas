@@ -16,12 +16,17 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="login-form">
+<<<<<<< HEAD
                     <h:form role="login" prependId="false">
+=======
+                    <h:form role="login">
+>>>>>>> 4e38214c4c1647f036c7b92bee41d6c20f373d4b
                         <div> <img class="img-responsive" src="imagens/logo_sk8line.jpg" alt="Sk8Line"/></div>
                         <div class="message">
                             <h:message for="xxx" />
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             <h:inputText id="usuario" class="form-control input-lg" value="#{loginMB.login}">
                                 <f:passThroughAttribute name="placeholder" value="Usuário" />
                             </h:inputText>
@@ -30,6 +35,12 @@
                             <h:inputSecret id="senha" class="form-control input-lg" value="#{loginMB.senha}">
                                 <f:passThroughAttribute name="placeholder" value="Senha" />
                             </h:inputSecret>
+=======
+                            <h:inputText id="usuario" class="form-control input-lg" required="true" value="#{loginMB.login}" />
+                        </div>
+                        <div class="form-group">
+                            <h:inputSecret id="senha" class="form-control input-lg" required="true" value="#{loginMB.senha}"/>
+>>>>>>> 4e38214c4c1647f036c7b92bee41d6c20f373d4b
                         </div>
                         <div>
                             <h:commandButton id="logon" class="btn btn-lg btn-primary btn-block" value="Logar" onclick="return validar();" action="#{loginMB.validarLogin}"/>
