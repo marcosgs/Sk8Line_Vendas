@@ -37,14 +37,18 @@ public class loginMB {
     }
     
     public String validarLogin(){
-        
-        usuario = ejb.consultarPorLogin(login);
-        
-        //if (this.usuario == this.usuarioSist && this.senha == this.senhaSist){ 
-        if (this.login.equals("root") && this.senha.equals("root")){
-            return "main";
-        }else{
-            FacesMessage msg = new FacesMessage("Usuário e senha são inválidos !");
+        try{
+            usuario = ejb.consultarPorLogin(login);
+
+            if (this.login.equals(usuario.getLogin()) && this.senha.equals(usuario.getSenha())){
+                return "main";
+            }else{
+                FacesMessage msg = new FacesMessage("Usuário e senha são inválidos !");
+                FacesContext.getCurrentInstance().addMessage("erro",msg);
+            }
+            System.out.println(usuario.getLogin() + usuario.getSenha());
+        }catch(Exception e){
+            FacesMessage msg = new FacesMessage("Usuário não encontrado!");
             FacesContext.getCurrentInstance().addMessage("erro",msg);
         }
         return null;

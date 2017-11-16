@@ -11,26 +11,30 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
     </h:head>
     <h:body>
-        <div class="container">
-            <div class="container-login">
-                <div> <img class="logoLogin" src="imagens/logo_sk8line.jpg"/></div>
-                <h:form>
-                    <h:panelGrid>
-                        <div>
-                            <div>Usuário: </div>
-                            <div><h:inputText id="usuario" value="#{loginMB.login}" /></div>
+        <div class="container-fluid">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="login-form">
+                    <h:form class="form-login" role="login">
+                        <div> <img class="img-responsive" src="imagens/logo_sk8line.jpg" alt="Sk8Line"/></div>
+                        <div class="form-group">
+                            <h:inputText id="usuario" class="form-control input-lg" onclick="validaUsuario" required="true" value="#{loginMB.login}" />
                         </div>
-                        <div>
-                            <div>Senha: </div>
-                            <div><h:inputSecret id="senha" value="#{loginMB.senha}"/></div>
+                        <div class="form-group">
+                            <h:inputSecret id="senha" class="form-control input-lg" onclick="validaUsuario" required="true" value="#{loginMB.senha}"/>
                         </div>
+
                         <div>
-                            <h:commandButton id="logon" value="Logar" action="#{loginMB.validarLogin}"/>
+                            <h:commandButton id="logon" class="btn btn-lg btn-primary btn-block" value="Logar" onclick="validaCampos" action="#{loginMB.validarLogin}"/>
                         </div>
-                    </h:panelGrid>
-                </h:form>
+                    </h:form>
+                </div>
             </div>
+            <div class="col-md-4"></div>
         </div>
+        <script src="js/jquery-3.2.1.min.js"> </script>
+	<script src="js/bootstrap.min.js" ></script>
+	<script src="js/validalogin.js" ></script>
     </h:body>
 </html>
 

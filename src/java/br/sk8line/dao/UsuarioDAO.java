@@ -38,17 +38,16 @@ public class UsuarioDAO {
 //        return query.getResultList();
 //    }
         
-    public Usuario consultarPorLogin(String login){
+    public Usuario consultarPorLogin(String login)throws Exception{
         
-        // Query consulta = em.createQuery("select CD_USER id, DC_NAME_USER login, DC_PASSWORD senha, DC_NAME nome from TB_USERS Usuario where login= '" + login + "'", Usuario.class);
-        //Query consulta = em.createNativeQuery("select * from Usuario");   
-        //Usuario usuario = (Usuario) consulta.getResultList();
-        
-        //EntityManager em = getEntityManager();
-        Query consulta = em.createNamedQuery("Usuario.login");
-        consulta.setParameter("login", login);
-        
-        return (Usuario) consulta.getSingleResult();
+        try{
+            Query consulta = em.createNamedQuery("Usuario.login");
+            consulta.setParameter("login", login);
+            return (Usuario) consulta.getSingleResult();
+        } catch(Exception e){
+            throw new Exception("Usuário não encontrado!");
+            //return null;
+        }
         
     }
     
