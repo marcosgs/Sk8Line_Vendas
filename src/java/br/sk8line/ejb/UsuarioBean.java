@@ -9,7 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Stateless
+@Stateless(name="Usuario")
 public class UsuarioBean implements UsuarioLocal{
     
     @PersistenceContext(unitName="Sk8Line_VendasPU")
