@@ -26,10 +26,10 @@ public class UsuarioMB {
     }
     
     public String salvar() throws Exception{
-    
+        
         usuario = ejb.Salvar(usuario);
         
-        return "index";
+        return "usuarios";
     }
     
 }

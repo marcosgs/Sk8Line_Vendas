@@ -2,10 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Sk8Line - Login</title>
+        <title>
+            <ui:insert name="title">
+                Sk8Line
+            </ui:insert>
+        </title>
         <link rel="icon" href="imagens/logo_sk8line.jpg"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
         <link rel="StyleSheet" type="text/css" href="css/principal.css"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
@@ -28,12 +34,12 @@
                         <div class="form-group">
 <<<<<<< HEAD
                             <h:inputText id="usuario" class="form-control input-lg" value="#{loginMB.login}">
-                                <f:passThroughAttribute name="placeholder" value="Usuário" />
+                                <f:passThroughAttribute name="placeholder" value="Digite o usuário" />
                             </h:inputText>
                         </div>
                         <div class="form-group">
                             <h:inputSecret id="senha" class="form-control input-lg" value="#{loginMB.senha}">
-                                <f:passThroughAttribute name="placeholder" value="Senha" />
+                                <f:passThroughAttribute name="placeholder" value="Digite a senha" />
                             </h:inputSecret>
 =======
                             <h:inputText id="usuario" class="form-control input-lg" required="true" value="#{loginMB.login}" />
@@ -43,7 +49,7 @@
 >>>>>>> 4e38214c4c1647f036c7b92bee41d6c20f373d4b
                         </div>
                         <div>
-                            <h:commandButton id="logon" class="btn btn-lg btn-primary btn-block" value="Logar" onclick="return validar();" action="#{loginMB.validarLogin}"/>
+                            <h:commandButton id="logon" class="btn btn-lg btn-primary btn-block" value="Logar" onclick="return validar();" action="#{loginMB.login}"/>
                         </div>
                     </h:form>
                 </div>
