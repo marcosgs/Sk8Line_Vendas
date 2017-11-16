@@ -15,15 +15,14 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="login-form">
-                    <h:form class="form-login" role="login">
+                    <h:form role="login">
                         <div> <img class="img-responsive" src="imagens/logo_sk8line.jpg" alt="Sk8Line"/></div>
                         <div class="form-group">
-                            <h:inputText id="usuario" class="form-control input-lg" onclick="validaUsuario" required="true" value="#{loginMB.login}" />
+                            <h:inputText id="usuario" class="form-control input-lg" required="true" value="#{loginMB.login}" />
                         </div>
                         <div class="form-group">
-                            <h:inputSecret id="senha" class="form-control input-lg" onclick="validaUsuario" required="true" value="#{loginMB.senha}"/>
+                            <h:inputSecret id="senha" class="form-control input-lg" required="true" value="#{loginMB.senha}"/>
                         </div>
-
                         <div>
                             <h:commandButton id="logon" class="btn btn-lg btn-primary btn-block" value="Logar" onclick="validaCampos" action="#{loginMB.validarLogin}"/>
                         </div>
