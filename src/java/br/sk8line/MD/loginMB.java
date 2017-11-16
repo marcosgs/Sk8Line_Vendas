@@ -42,7 +42,7 @@ public class loginMB {
             usuario = ejb.consultarPorLogin(login);
 
             if (this.login.equals(usuario.getLogin()) && this.senha.equals(usuario.getSenha())){
-                Session 
+                 
                 return "pages/main";
             }else{
                 FacesMessage msg = new FacesMessage("Senha inválida!");
