@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>
+            <ui:insert name="title">
+                Sk8Line
+            </ui:insert>
+        </title>
+        <link rel="icon" href="imagens/logo_sk8line.jpg"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="StyleSheet" type="text/css" href="css/principal.css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid id ="cadastro_usuario" columns="2">
+                <h:outputText value="Nome: "/>
+                <h:inputText id="nome" value="#{usuarioMB.usuario.nome}" />
+                
+                <h:outputText value="Login: "/>
+                <h:inputText id="login" value="#{usuarioMB.usuario.login}"/>
+                
+                <h:outputText value="Senha:"/>
+                <h:inputSecret id="senha" value="#{usuarioMB.usuario.senha}"/>
+                
+                <h:outputText value="Perfil: " />
+                <h:selectOneMenu id="perfil" value="#{usuarioMB.usuario.perfil}">
+                    <f:selectItem itemLabel="Administrador" itemValue="Administrador"/>
+                    <f:selectItem itemLabel="Usuario" itemValue="Usuario"/>
+                </h:selectOneMenu> 
+                <h:commandButton id="cadastrar" value="Salvar" action="#{usuarioMB.salvar()}"/>
+                <h:commandButton id="cadastrar" value="Cancelar" action="#{usuarioMB.cancelar()}"/>
+                
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
+

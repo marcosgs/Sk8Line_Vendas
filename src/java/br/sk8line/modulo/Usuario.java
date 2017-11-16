@@ -1,6 +1,7 @@
 package br.sk8line.modulo;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,8 +27,17 @@ import javax.persistence.Table;
 @Table(name="TB_USERS")
 @SequenceGenerator(name="USERS_SEQ",sequenceName="USERS_SEQ",initialValue=1, allocationSize=1)
 public class Usuario implements Serializable{
+    /*
+    Tabela Usuarios
+    TB_USERS
     
-       
+    Colunas
+    CD_USER
+    DC_NAME_USER
+    NU_PRICE
+    DT_CREATE
+    */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
     @Column(name="CD_USER")
@@ -41,6 +51,12 @@ public class Usuario implements Serializable{
     
     @Column(name="DC_NAME",nullable=false)
     private String nome;
+    
+    @Column(name="IN_ADMIN_IND")
+    private String AdminInd;
+    
+    @Column(name="DT_CREATE")
+    private Date data_Atual;
     
     public Long getId() {
         return id;
@@ -73,6 +89,23 @@ public class Usuario implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public String getAdminInd() {
+        return AdminInd;
+    }
+
+    public void setAdminInd(String AdminInd) {
+        this.AdminInd = AdminInd;
+    }
+
+    public Date getData_Atual() {
+        return data_Atual;
+    }
+
+    public void setData_Atual(Date data_Atual) {
+        this.data_Atual = data_Atual;
+    }
+    
     
 }
 

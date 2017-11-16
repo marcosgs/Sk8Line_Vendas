@@ -1,8 +1,8 @@
 @CHARSET "UTF-8";
 
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+    /*-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;*/
     box-sizing: border-box;
     outline: none;
 }
@@ -16,10 +16,11 @@
 
 body {
     background-color: rgb(176,196,222);
-    -webkit-background-size: cover;
+    /*-webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
     background-size: cover;
+    font-family: "Crimson Text", "Times New Roman", serif;
 }
 
 .login-form {
@@ -31,8 +32,8 @@ form[role=login] {
     background: #FFF;
     padding: 26px;
     border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
+    /*-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;*/
 }
 
 form[role=login] img {

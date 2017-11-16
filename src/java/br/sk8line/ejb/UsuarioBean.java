@@ -2,6 +2,8 @@ package br.sk8line.ejb;
 
 import br.sk8line.dao.UsuarioDAO;
 import br.sk8line.modulo.Usuario;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,7 +29,12 @@ public class UsuarioBean implements UsuarioLocal{
     @Override
     public Usuario consultarPorLogin(String login){
         UsuarioDAO dao = new UsuarioDAO(em);
-        return dao.consultarPorLogin(login);
+        try {
+            return dao.consultarPorLogin(login);
+        } catch (Exception ex) {
+            Logger.getLogger(UsuarioBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     @Override
