@@ -18,16 +18,16 @@ import javax.persistence.Table;
   @NamedQuery(name = "Usuario.login",
               query = " SELECT u " +
                       " FROM Usuario u" +
-                      " WHERE u.login = :login ")
+                      " WHERE u.login = :login " +
+                      " and u.nome <> 'root'")
 })
 
 @Entity
 @Table(name="TB_USERS")
 @SequenceGenerator(name="USERS_SEQ",sequenceName="USERS_SEQ",initialValue=1, allocationSize=1)
 public class Usuario implements Serializable{
-       
-    private static final long serialVersionUID = 7516813189218268079L;            
     
+       
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
     @Column(name="CD_USER")
