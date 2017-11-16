@@ -17,4 +17,4 @@ create table TB_PRODUCTS(
     NU_PRICE
     DT_CREATE
 );
-create sequence  PRODUCT_SEQ  
+create sequence  PRODUCT_SEQ  ;

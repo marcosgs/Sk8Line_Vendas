@@ -1,5 +1,10 @@
 package br.sk8line.modulo;
 
+/*
+    VErificar este exemplo https://www.devmedia.com.br/jsf-session-criando-um-modulo-de-login/30975
+
+*/
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -11,6 +16,8 @@ import javax.persistence.Column;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @NamedQueries({
   @NamedQuery(name = "Usuario.consultarTodos",
@@ -27,16 +34,6 @@ import javax.persistence.Table;
 @Table(name="TB_USERS")
 @SequenceGenerator(name="USERS_SEQ",sequenceName="USERS_SEQ",initialValue=1, allocationSize=1)
 public class Usuario implements Serializable{
-    /*
-    Tabela Usuarios
-    TB_USERS
-    
-    Colunas
-    CD_USER
-    DC_NAME_USER
-    NU_PRICE
-    DT_CREATE
-    */
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USERS_SEQ")
@@ -56,6 +53,7 @@ public class Usuario implements Serializable{
     private String AdminInd;
     
     @Column(name="DT_CREATE")
+    @Temporal(TemporalType.DATE)
     private Date data_Atual;
     
     public Long getId() {

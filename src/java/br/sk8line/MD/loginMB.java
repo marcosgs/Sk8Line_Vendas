@@ -41,9 +41,9 @@ public class loginMB {
             usuario = ejb.consultarPorLogin(login);
 
             if (this.login.equals(usuario.getLogin()) && this.senha.equals(usuario.getSenha())){
-                return "main";
+                return "pages/main";
             }else{
-                FacesMessage msg = new FacesMessage("Senha são inválidos!");
+                FacesMessage msg = new FacesMessage("Senha inválida!");
                 FacesContext.getCurrentInstance().addMessage("xxx",msg);
             }
             System.out.println(usuario.getLogin() + usuario.getSenha());
@@ -51,6 +51,10 @@ public class loginMB {
             FacesMessage msg = new FacesMessage("Usuário não encontrado!");
             FacesContext.getCurrentInstance().addMessage("xxx",msg);
         }
-        return "login";
+        return "pages/login";
+    }
+    
+    public String Sair(){
+        return null;
     }
 }
