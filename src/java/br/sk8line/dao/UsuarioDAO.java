@@ -32,10 +32,11 @@ public class UsuarioDAO {
         return em.find(Usuario.class, id);
     }
     
-    public List<Usuario> consultarTodos() {
-        Query query = em.createNamedQuery("Emprestimo.consultarTodos");
-        return query.getResultList();
-    }
+//    public List<Emprestimo> consultarTodos() {
+//        EntityManager entityManager = getEntityManager();
+//        Query query = entityManager.createNamedQuery("Emprestimo.consultarTodos");
+//        return query.getResultList();
+//    }
         
     public Usuario consultarPorLogin(String login)throws Exception{
         

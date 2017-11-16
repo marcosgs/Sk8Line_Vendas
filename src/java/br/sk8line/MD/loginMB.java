@@ -43,14 +43,14 @@ public class loginMB {
             if (this.login.equals(usuario.getLogin()) && this.senha.equals(usuario.getSenha())){
                 return "main";
             }else{
-                FacesMessage msg = new FacesMessage("Usuário e senha são inválidos !");
-                FacesContext.getCurrentInstance().addMessage("erro",msg);
+                FacesMessage msg = new FacesMessage("Senha são inválidos!");
+                FacesContext.getCurrentInstance().addMessage("xxx",msg);
             }
             System.out.println(usuario.getLogin() + usuario.getSenha());
         }catch(Exception e){
             FacesMessage msg = new FacesMessage("Usuário não encontrado!");
-            FacesContext.getCurrentInstance().addMessage("erro",msg);
+            FacesContext.getCurrentInstance().addMessage("xxx",msg);
         }
-        return null;
+        return "login";
     }
 }
