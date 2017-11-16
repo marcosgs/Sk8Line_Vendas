@@ -4,11 +4,11 @@ import br.sk8line.dao.UsuarioDAO;
 import br.sk8line.modulo.Usuario;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Stateless
+@Stateful
 public class UsuarioBean implements UsuarioLocal{
     
     @PersistenceContext(unitName="Sk8Line_VendasPU")

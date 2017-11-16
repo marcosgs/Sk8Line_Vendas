@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean
 @SessionScoped
@@ -36,25 +37,27 @@ public class loginMB {
         return senha;
     }
     
-    public String validarLogin(){
+    public String login(){
         try{
             usuario = ejb.consultarPorLogin(login);
 
             if (this.login.equals(usuario.getLogin()) && this.senha.equals(usuario.getSenha())){
+                Session 
                 return "pages/main";
             }else{
                 FacesMessage msg = new FacesMessage("Senha inválida!");
-                FacesContext.getCurrentInstance().addMessage("xxx",msg);
+                FacesContext.getCurrentInstance().addMessage("",msg);
+                
             }
             System.out.println(usuario.getLogin() + usuario.getSenha());
         }catch(Exception e){
             FacesMessage msg = new FacesMessage("Usuário não encontrado!");
-            FacesContext.getCurrentInstance().addMessage("xxx",msg);
+            FacesContext.getCurrentInstance().addMessage(null,msg);
         }
         return "pages/login";
     }
     
-    public String Sair(){
+    public String logout(){
         return null;
     }
 }

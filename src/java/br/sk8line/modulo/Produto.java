@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @NamedQueries({
     @NamedQuery(name="Produto.consultarTodos",
@@ -34,6 +36,7 @@ public class Produto implements Serializable {
     private float preco; 
     
     @Column(name="DT_CREATE")
+    @Temporal(TemporalType.DATE)
     private Date data_Atual;
 
     public Long getId() {
