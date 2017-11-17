@@ -1,7 +1,7 @@
 package br.sk8line.ejb;
 
 import br.sk8line.dao.UsuarioDAO;
-import br.sk8line.modulo.Usuario;
+import br.sk8line.modelo.Usuario;
 
 import java.util.List;
 import java.util.logging.Level;

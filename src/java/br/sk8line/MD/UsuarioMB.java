@@ -1,7 +1,7 @@
 package br.sk8line.MD;
 
 import br.sk8line.ejb.UsuarioLocal;
-import br.sk8line.modulo.Usuario;
+import br.sk8line.modelo.Usuario;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;

@@ -1,7 +1,7 @@
 package br.sk8line.MD;
 
 import br.sk8line.ejb.UsuarioLocal;
-import br.sk8line.modulo.Usuario;
+import br.sk8line.modelo.Usuario;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -37,13 +37,13 @@ public class loginMB {
         return senha;
     }
     
-    public String login(){
+    public String validaLogin(){
         try{
             usuario = ejb.consultarPorLogin(login);
 
             if (this.login.equals(usuario.getLogin()) && this.senha.equals(usuario.getSenha())){
                  
-                return "pages/main";
+                return "main";
             }else{
                 FacesMessage msg = new FacesMessage("Senha inválida!");
                 FacesContext.getCurrentInstance().addMessage("",msg);
@@ -54,10 +54,7 @@ public class loginMB {
             FacesMessage msg = new FacesMessage("Usuário não encontrado!");
             FacesContext.getCurrentInstance().addMessage(null,msg);
         }
-        return "pages/login";
+        return "login";
     }
-    
-    public String logout(){
-        return null;
-    }
+
 }

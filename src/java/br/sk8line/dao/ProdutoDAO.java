@@ -1,6 +1,6 @@
 package br.sk8line.dao;
 
-import br.sk8line.modulo.Produto;
+import br.sk8line.modelo.Produto;
 
 import javax.persistence.EntityManager;
 

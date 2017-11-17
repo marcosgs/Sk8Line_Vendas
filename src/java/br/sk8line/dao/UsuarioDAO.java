@@ -1,6 +1,6 @@
 package br.sk8line.dao;
 
-import br.sk8line.modulo.Usuario;
+import br.sk8line.modelo.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -33,7 +33,7 @@ public class UsuarioDAO {
     }
     
     public List<Usuario> consultarTodos() {
-        Query query = em.createNamedQuery("Emprestimo.consultarTodos");
+        Query query = em.createNamedQuery("Usuario.consultarTodos");
         return query.getResultList();
     }
         

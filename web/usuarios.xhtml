@@ -17,35 +17,16 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
     </h:head>
     <h:body>
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    
-                    <a class="navbar-brand" href="main.html">Sk8Line</a>
-		</div>
-                
-                <div class="collapse nav-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="">Cadastro</a>
-                            
-                        </li>
-                        
-                        <li>
-                            <h:commandLink value="Logout" action="#{loginMB.logout}" rendered="#{loginMB.login}"></h:commandLink>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="nav nav-bar">
+            <ui:include src="/menu.xhtml" />
         </div>
         <div class="container-fluid">
-            
+            <div class="row">
+                <div class="cad-form">
+                    <h:form role="usuario" prependId="false">
+                    </h:form>
+                </div>
+            </div>
         </div>
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"> </script>
 	<script type="text/javascript" src="js/bootstrap.min.js" ></script>

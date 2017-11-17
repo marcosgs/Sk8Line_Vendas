@@ -1,12 +1,12 @@
-function validar(){
+function validarLogin(){
     var usuario = document.getElementById('usuario');
     var senha = document.getElementById('senha');
     
-    var message = document.getElementByClass('message');
+    var mensagem = document.getElementById('message');
     
     if (usuario.value =='' ){
         alert("Usuário em branco");
-        message.TextContext="Usuário em branco";
+        mensagem.TextContext="Usuário em branco";
         usuario.focus();
         return false;
     }

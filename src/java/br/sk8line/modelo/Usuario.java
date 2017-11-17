@@ -1,4 +1,4 @@
-package br.sk8line.modulo;
+package br.sk8line.modelo;
 
 /*
     VErificar este exemplo https://www.devmedia.com.br/jsf-session-criando-um-modulo-de-login/30975
@@ -49,12 +49,12 @@ public class Usuario implements Serializable{
     @Column(name="DC_NAME",nullable=false)
     private String nome;
     
-    @Column(name="IN_ADMIN_IND")
-    private String AdminInd;
-    
-    @Column(name="DT_CREATE")
-    @Temporal(TemporalType.DATE)
-    private Date data_Atual;
+//    @Column(name="IN_ADMIN_IND")
+//    private String AdminInd;
+//    
+//    @Column(name="DT_CREATE")
+//    @Temporal(TemporalType.DATE)
+//    private Date data_Atual;
     
     public Long getId() {
         return id;
@@ -88,21 +88,21 @@ public class Usuario implements Serializable{
         this.nome = nome;
     }
 
-    public String getAdminInd() {
-        return AdminInd;
-    }
-
-    public void setAdminInd(String AdminInd) {
-        this.AdminInd = AdminInd;
-    }
-
-    public Date getData_Atual() {
-        return data_Atual;
-    }
-
-    public void setData_Atual(Date data_Atual) {
-        this.data_Atual = data_Atual;
-    }
+//    public String getAdminInd() {
+//        return AdminInd;
+//    }
+//
+//    public void setAdminInd(String AdminInd) {
+//        this.AdminInd = AdminInd;
+//    }
+//
+//    public Date getData_Atual() {
+//        return data_Atual;
+//    }
+//
+//    public void setData_Atual(Date data_Atual) {
+//        this.data_Atual = data_Atual;
+//    }
     
     
 }
