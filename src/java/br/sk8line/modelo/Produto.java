@@ -15,8 +15,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @NamedQueries({
-    @NamedQuery(name="Produto.consultarTodos",
-                query="Select p from Produto p")
+    @NamedQuery(name = "Produto.consultarTodos",
+                query = "Select p from Produto p")
 })
 
 @Entity

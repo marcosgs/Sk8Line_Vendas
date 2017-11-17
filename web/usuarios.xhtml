@@ -18,13 +18,16 @@
     </h:head>
     <h:body>
         <div class="nav nav-bar">
-            <ui:include src="/menu.xhtml" />
+            <!--<ui:include src="/menu.xhtml" />-->
         </div>
         <div class="container-fluid">
             <div class="row">
                 <div class="cad-form">
-                    <h:form role="usuario" prependId="false">
-                    </h:form>
+                    <h:dataTable value="#{consultarTodos.Usuario} var="usuario">
+                        <h:column>
+                            <h:outputText value="usuario.Nome"> 
+                        </h:column>
+                    </h:dataTable>
                 </div>
             </div>
         </div>

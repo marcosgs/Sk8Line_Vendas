@@ -15,6 +15,5 @@ public interface UsuarioLocal {
     
     public Usuario consultarPorLogin(String login);
     
-    
     public void remover(Long id);
 }

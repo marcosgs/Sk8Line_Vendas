@@ -18,6 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.jboss.weld.bean.AbstractBean;
 
 @NamedQueries({
   @NamedQuery(name = "Usuario.consultarTodos",
@@ -40,7 +41,7 @@ public class Usuario implements Serializable{
     @Column(name="CD_USER")
     private Long id;
 
-    @Column(name="DC_NAME_USER",nullable=false)
+    @Column(name="DC_NAME_USER",unique = true ,nullable=false)
     private String login;
     
     @Column(name="DC_PASSWORD",nullable=false)
@@ -49,12 +50,12 @@ public class Usuario implements Serializable{
     @Column(name="DC_NAME",nullable=false)
     private String nome;
     
-//    @Column(name="IN_ADMIN_IND")
-//    private String AdminInd;
-//    
-//    @Column(name="DT_CREATE")
-//    @Temporal(TemporalType.DATE)
-//    private Date data_Atual;
+    @Column(name="IN_ADMIN_IND")
+    private String AdminInd;
+    
+    @Column(name="DT_CREATE")
+    @Temporal(TemporalType.DATE)
+    private Date data_Atual;
     
     public Long getId() {
         return id;
@@ -88,22 +89,40 @@ public class Usuario implements Serializable{
         this.nome = nome;
     }
 
-//    public String getAdminInd() {
-//        return AdminInd;
-//    }
-//
-//    public void setAdminInd(String AdminInd) {
-//        this.AdminInd = AdminInd;
-//    }
-//
-//    public Date getData_Atual() {
-//        return data_Atual;
-//    }
-//
-//    public void setData_Atual(Date data_Atual) {
-//        this.data_Atual = data_Atual;
-//    }
+    public String getAdminInd() {
+        return AdminInd;
+    }
+
+    public void setAdminInd(String AdminInd) {
+        this.AdminInd = AdminInd;
+    }
+
+    public Date getData_Atual() {
+        return data_Atual;
+    }
+
+    public void setData_Atual(Date data_Atual) {
+        this.data_Atual = data_Atual;
+    }
     
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
     
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+                 return true;
+        if (obj == null)
+                 return false;
+        if (getClass() != obj.getClass())
+                 return false;
+
+        return (obj instanceof AbstractBean) ? (this.getId() == null ? this == obj : this.getId().equals(((AbstractBean)obj).getId())):false;
+    }
 }
 
