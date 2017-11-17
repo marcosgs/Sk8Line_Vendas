@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+   
+    <ui:composition>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <a class="navbar-brand" href="#">Sk8Line</a>
+		</div>
+                
+                               
+                    <p:megaMenu class="nav navbar-nav navbar-right">
+                        <p:submenu label="Cadastros">
+                            
+                                <p:menuitem value="TV.1.1" url="#" />
+                                <p:menuitem value="TV.1.2" url="#" />
+                            
+                        </p:submenu>
+                        <p:menuitem value="Logout" action="#{loginMB.logout}" rendered="#{loginMB.login}"></p:menuitem>
+                    </p:megaMenu>
+                
+            </div>
+        </div>
+        
+    </ui:composition>
+</html>
+

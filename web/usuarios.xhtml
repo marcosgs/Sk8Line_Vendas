@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>
             <ui:insert name="title">
@@ -17,20 +19,22 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
     </h:head>
     <h:body>
-        <div class="nav nav-bar">
-            <!--<ui:include src="/menu.xhtml" />-->
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="cad-form">
-                    <h:dataTable value="#{consultarTodos.Usuario} var="usuario">
-                        <h:column>
-                            <h:outputText value="usuario.Nome"> 
-                        </h:column>
-                    </h:dataTable>
-                </div>
-            </div>
-        </div>
+        
+        <h1> Usuários </h1>
+        <h:dataTable  value="#{UsuarioMB.usuarios}" var="usuario" styleClass="table">
+            <h:column >
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{usuario.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nome</f:facet>
+                <h:outputText value="#{usuario.nome}"/>
+            </h:column>
+            <h:column >
+                <h:commandButton value="Excluir" styleClass="btn btn-danger">
+            </h:column>        
+        </p:dataTable>
+        
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"> </script>
 	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
 	<script charset="UTF-8" type="text/javascript" src="js/validalogin.js" ></script>
