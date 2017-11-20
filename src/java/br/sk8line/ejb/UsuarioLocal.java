@@ -7,13 +7,13 @@ import javax.ejb.Local;
 @Local
 public interface UsuarioLocal {
     
-    public Usuario Salvar(Usuario u) throws Exception;
+    public Usuario salvar(Usuario u) throws Exception;
     
     public Usuario consultarPorId (Long id);
     
     public List<Usuario> consultarTodos();
     
-    public Usuario consultarPorLogin(String login);
+    public Usuario consultarPorLogin(String login)throws Exception;
     
     public void remover(Long id);
 }

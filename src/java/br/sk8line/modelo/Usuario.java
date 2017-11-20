@@ -22,18 +22,18 @@ import org.jboss.weld.bean.AbstractBean;
 
 @NamedQueries({
   @NamedQuery(name = "Usuario.consultarTodos",
-              query= "SELECT u FROM Usuario u"),
+              query= "SELECT u FROM Usuario u" +
+                      " WHERE u.nome <> 'root'"),
     
   @NamedQuery(name = "Usuario.login",
               query = " SELECT u " +
                       " FROM Usuario u" +
-                      " WHERE u.login = :login " +
-                      " and u.nome <> 'root'")
+                      " WHERE u.login = :login ")
 })
 
 @Entity
 @Table(name="TB_USERS")
-@SequenceGenerator(name="USERS_SEQ",sequenceName="USERS_SEQ",initialValue=1, allocationSize=1)
+@SequenceGenerator(name="USERS_SEQ",sequenceName="USERS_SEQ",initialValue = 1, allocationSize = 1 )
 public class Usuario implements Serializable{
     
     @Id
@@ -41,7 +41,7 @@ public class Usuario implements Serializable{
     @Column(name="CD_USER")
     private Long id;
 
-    @Column(name="DC_NAME_USER",unique = true ,nullable=false)
+    @Column(name="DC_NAME_USER", nullable=false, unique = true, length = 200)
     private String login;
     
     @Column(name="DC_PASSWORD",nullable=false)
@@ -55,7 +55,11 @@ public class Usuario implements Serializable{
     
     @Column(name="DT_CREATE")
     @Temporal(TemporalType.DATE)
-    private Date data_Atual;
+    private Date dataCriacao;
+    
+    @Column(name="DT_LAST_UPD")
+    @Temporal(TemporalType.DATE)
+    private Date dataAtual;
     
     public Long getId() {
         return id;
@@ -97,13 +101,23 @@ public class Usuario implements Serializable{
         this.AdminInd = AdminInd;
     }
 
-    public Date getData_Atual() {
-        return data_Atual;
+    public Date getDataCriacao() {
+        return dataCriacao;
     }
 
-    public void setData_Atual(Date data_Atual) {
-        this.data_Atual = data_Atual;
+    public void setDataCriacao(Date dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
+
+    public Date getDataAtual() {
+        return dataAtual;
+    }
+
+    public void setDataAtual(Date dataAtual) {
+        this.dataAtual = dataAtual;
+    }
+    
+    
     
     @Override
     public int hashCode() {

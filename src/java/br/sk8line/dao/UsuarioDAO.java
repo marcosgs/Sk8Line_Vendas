@@ -13,7 +13,7 @@ public class UsuarioDAO {
         this.em=em;
     }
     
-    public Usuario Salvar(Usuario u) throws Exception{
+    public Usuario salvar(Usuario u) throws Exception{
         if (u.getId()==null){
             em.persist(u);
         }else{
