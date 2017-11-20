@@ -28,7 +28,7 @@ public class UsuarioMB {
     
     public String salvar() throws Exception{
         
-        usuario = ejb.Salvar(usuario);
+        usuario = ejb.salvar(usuario);
         
         return "usuarios";
     }

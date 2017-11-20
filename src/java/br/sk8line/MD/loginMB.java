@@ -45,13 +45,13 @@ public class loginMB {
                 return "main";
             }else{
                 FacesMessage msg = new FacesMessage("Senha inválida!");
-                FacesContext.getCurrentInstance().addMessage("",msg);
+                FacesContext.getCurrentInstance().addMessage("xxx",msg);
                 
             }
             System.out.println(usuario.getLogin() + usuario.getSenha());
         }catch(Exception e){
             FacesMessage msg = new FacesMessage("Usuário não encontrado!");
-            FacesContext.getCurrentInstance().addMessage(null,msg);
+            FacesContext.getCurrentInstance().addMessage("xxx",msg);
         }
         return "login";
     }

@@ -4,8 +4,6 @@ import br.sk8line.dao.UsuarioDAO;
 import br.sk8line.modelo.Usuario;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,9 +15,9 @@ public class UsuarioBean implements UsuarioLocal{
     private EntityManager em;
 
     @Override
-    public Usuario Salvar(Usuario u) throws Exception {
+    public Usuario salvar(Usuario u) throws Exception {
         UsuarioDAO dao = new UsuarioDAO(em);
-        return dao.Salvar(u);
+        return dao.salvar(u);
     }
 
     @Override
@@ -34,14 +32,15 @@ public class UsuarioBean implements UsuarioLocal{
     }
     
     @Override
-    public Usuario consultarPorLogin(String login){
+    public Usuario consultarPorLogin(String login)throws Exception{
         UsuarioDAO dao = new UsuarioDAO(em);
         try {
             return dao.consultarPorLogin(login);
         } catch (Exception ex) {
-            Logger.getLogger(UsuarioBean.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(UsuarioBean.class.getName()).log(Level.SEVERE, null, ex);
+            throw new Exception("Usuário não encontrado!");
+            //return null;
         }
-        return null;
     }
     
     @Override
