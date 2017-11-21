@@ -7,9 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>
-            <ui:insert name="title">
-                Sk8Line
-            </ui:insert>
+            Sk8Line
         </title>
         <link rel="icon" href="imagens/logo_sk8line.jpg"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
@@ -20,7 +18,9 @@
     </h:head>
     <h:body>
         
-        <h1> Usuários </h1>
+        <ui:include src="header.xhtml"/>
+        
+        <h1 class="titulo-principal"> Usuários </h1>
         <h:dataTable  value="#{UsuarioMB.usuarios}" var="usuario" styleClass="table">
             <h:column >
                 <f:facet name="header">ID</f:facet>
@@ -31,9 +31,9 @@
                 <h:outputText value="#{usuario.nome}"/>
             </h:column>
             <h:column >
-                <h:commandButton value="Excluir" styleClass="btn btn-danger">
+                <h:commandButton value="Excluir" styleClass="btn btn-danger"/>
             </h:column>        
-        </p:dataTable>
+        </h:dataTable>
         
         <script type="text/javascript" src="js/jquery-3.2.1.min.js"> </script>
 	<script type="text/javascript" src="js/bootstrap.min.js" ></script>

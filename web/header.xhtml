@@ -3,96 +3,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-<<<<<<< HEAD
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">  
     <ui:composition>
-        <h:form>  
-            <p:growl id="messages"/>
-
-            <p:menubar>
-                <p:submenu label="Cadastros" icon="ui-icon-document">
-                    <p:menuitem value="Usuários" url="usuarios.xhtml" />
-                    <p:separator />
-                    <p:menuitem value="Clientes" url="#" />
-                    <p:menuitem value="Funcionários" url="#" />
-                    <p:menuitem value="Clientes" url="#" />
-                </p:submenu>
-
-                <p:submenu label="Edit" icon="ui-icon-pencil">
-                    <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-                    <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
-                </p:submenu>
-
-                <p:submenu label="Help" icon="ui-icon-help">
-                    <p:menuitem value="Contents" url="#" />
-                    <p:submenu label="Search" icon="ui-icon-search">
-                        <p:submenu label="Text">
-                            <p:menuitem value="Workspace" url="#" />
+        <div class="container-fluid">
+            <div class="row">
+                <h:form>  
+                    <p:growl id="messages" class=""/>
+                    <p:menubar>
+                        <p:submenu class="btn" label="Cadastros" icon="ui-icon-document">
+                            <p:menuitem value="Usuários" url="usuarios.xhtml" actionListener="#{menuMB.acaoMnUsuario()}" update="messages" />
+                            <p:separator />
+                            <p:menuitem value="Clientes" url="#" actionListener="#{menuMB.acaoMnCliente()}"/>
+                            <p:menuitem value="Funcionários" url="#" actionListener="#{menuMB.acaoMnFuncionario()}"/>
+                            <p:menuitem value="Produtos" url="#" actionListener="#{menuMB.acaoMnProduto()}"/>
                         </p:submenu>
-                        <p:menuitem value="File" url="#" />
-                    </p:submenu>
-                </p:submenu>
 
-                <p:submenu label="Actions" icon="ui-icon-gear">
-                    <p:submenu label="Ajax" icon="ui-icon-refresh">
-                        <p:menuitem value="Save" actionListener="#{menuView.save}" icon="ui-icon-disk" update="messages"/>
-                        <p:menuitem value="Update" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
-                    </p:submenu>
-                    <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
-                        <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
-                    </p:submenu>
-                </p:submenu>
 
-                <f:facet name="options">
-                    <p:inputText style="margin-right:10px" placeholder="Search"/>
-                    <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
-                </f:facet>
-            </p:menubar>
-        </h:form>            
-=======
-      xmlns:p="http://primefaces.org/ui">
-   
-    <ui:composition>
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Sk8Line</a>
-		</div>
-                    
-                <div class="nav-bar-collapse">
-                    <div class="row" style="padding-top: 10px;">
-                        <h:form>
-                            <h:commandLink class="btn btn-sm btn-sucess active navbar-right" />
-                                
-                            </h:commandLink>
-                        </h:form>
-                    </div>
-                </div>
-                
-                
-                
-                <!--
-                    <p:megaMenu class="nav navbar-nav navbar-right">
-                        <p:submenu label="Cadastros">
-                            
-                                <p:menuitem value="TV.1.1" url="#" />
-                                <p:menuitem value="TV.1.2" url="#" />
-                            
-                        </p:submenu>
-                        <p:menuitem value="Logout" action="#{loginMB.logout}" rendered="#{loginMB.login}"></p:menuitem>
-                    </p:megaMenu>
-                -->
+                        <f:facet name="options">
+                            <p:inputText style="margin-right:10px" placeholder="Pesquisar"/>
+                            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+                        </f:facet>
+                    </p:menubar>
+                </h:form>            
             </div>
         </div>
-        
->>>>>>> f276b792997b3266e3ad7b42765304b2ccc00bbb
     </ui:composition>
 </html>
 
