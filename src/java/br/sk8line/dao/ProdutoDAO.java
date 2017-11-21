@@ -9,6 +9,10 @@ public class ProdutoDAO {
     
     private EntityManager em;
     
+    public ProdutoDAO(EntityManager em){
+        this.em =em;
+    }
+    
     public Produto salvar(Produto p)throws Exception{
         if (p.getId()==null){
             em.persist(p);

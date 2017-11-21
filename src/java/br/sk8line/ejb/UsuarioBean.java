@@ -37,9 +37,7 @@ public class UsuarioBean implements UsuarioLocal{
         try {
             return dao.consultarPorLogin(login);
         } catch (Exception ex) {
-            //Logger.getLogger(UsuarioBean.class.getName()).log(Level.SEVERE, null, ex);
             throw new Exception("Usuário não encontrado!");
-            //return null;
         }
     }
     

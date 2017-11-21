@@ -15,5 +15,4 @@ public interface ProdutoLocal {
     
     public void remover(Long id);
     
-    
 }

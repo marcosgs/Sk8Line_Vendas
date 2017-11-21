@@ -8,6 +8,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.SequenceGenerator;
 import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @NamedQueries({
@@ -23,7 +27,7 @@ import java.util.Date;
 public class Cliente {
     
     @Id
-    
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="CLIENT_SEQ")
     @Column(name="CD_CLIENT")
     private Long id;
     
@@ -38,6 +42,14 @@ public class Cliente {
     
     @Column(name="DT_BIRTH_DATE", nullable=false)
     private Date dataNascimento;
+    
+    @Column(name="DT_CREATE")
+    @Temporal(TemporalType.DATE)
+    private Date dataCriacao;
+    
+    @Column(name="DT_LAST_UPD")
+    @Temporal(TemporalType.DATE)
+    private Date dataAtual;
     
     public Long getId() {
         return id;
@@ -70,5 +82,31 @@ public class Cliente {
     public void setNumeroCNPJCPF(String numeroCNPJCPF) {
         this.numeroCNPJCPF = numeroCNPJCPF;
     }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public Date getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(Date dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public Date getDataAtual() {
+        return dataAtual;
+    }
+
+    public void setDataAtual(Date dataAtual) {
+        this.dataAtual = dataAtual;
+    }
+    
+    
     
 }

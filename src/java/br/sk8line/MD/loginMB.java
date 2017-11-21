@@ -56,4 +56,8 @@ public class loginMB {
         return "login";
     }
 
+    public void logout(){
+        
+    }
+    
 }

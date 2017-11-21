@@ -15,14 +15,16 @@
         <link rel="StyleSheet" type="text/css" href="css/principal.css"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
+        
+        <script name="jquery/jquery.js" library="primefaces"></script>
     </h:head>
     <h:body>
-        
         <ui:include src="header.xhtml"/>
         <div class="container-fluid">
             <div class="row">
                 <h1 class="titulo-principal"> Usuários </h1>
             </div>
+            <div class="row">
                 <h:form>
                     <p:growl id="growl" life="2000" />
                     <h:commandButton id="novo" value="Novo" action="#{usuarioMB.irCadastroUsuarios()}"/>
@@ -32,7 +34,8 @@
                         <h:outputText value="Excluir" />
                     </p:commandLink>
                 </h:form>
-            
+            </div>
+            <div class="row">
             
                 <h:form>
                     <h:dataTable  value="#{usuarioMB.usuario}" var="usuario"  styleClass="table">
@@ -49,10 +52,10 @@
                         </h:column>        
                     </h:dataTable>
                 </h:form>
-                
+            </div>
         </div>
-        <script type="text/javascript" src="js/jquery-3.2.1.min.js"> </script>
-	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+        <script charset="UTF-8" type="text/javascript" src="js/jquery-3.2.1.min.js"> </script>
+	<script charset="UTF-8" type="text/javascript" src="js/bootstrap.min.js" ></script>
 	<script charset="UTF-8" type="text/javascript" src="js/validalogin.js" ></script>
     </h:body>
 </html>

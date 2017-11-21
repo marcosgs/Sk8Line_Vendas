@@ -37,7 +37,11 @@ public class Produto implements Serializable {
     
     @Column(name="DT_CREATE")
     @Temporal(TemporalType.DATE)
-    private Date data_Atual;
+    private Date dataCriacao;
+    
+    @Column(name="DT_LAST_UPD")
+    @Temporal(TemporalType.DATE)
+    private Date dataAtual;
 
     public Long getId() {
         return id;
@@ -63,12 +67,24 @@ public class Produto implements Serializable {
         this.preco = preco;
     }
 
-    public Date getData_Atual() {
-        return data_Atual;
+    public Date getDataCriacao() {
+        return dataCriacao;
     }
 
-    public void setData_Atual(Date data_Atual) {
-        this.data_Atual = data_Atual;
+    public void setDataCriacao(Date dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
+
+    public Date getDataAtual() {
+        return dataAtual;
+    }
+
+    public void setDataAtual(Date dataAtual) {
+        this.dataAtual = dataAtual;
+    }
+
+    
+    
+    
     
 }
