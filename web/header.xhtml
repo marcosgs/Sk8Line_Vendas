@@ -8,17 +8,18 @@
     <ui:composition>
         <div class="container-fluid">
             <div class="row">
-                <h:form>  
+                <h:form styleClass="form-group">  
                     <p:growl id="messages" class=""/>
                     <p:menubar>
-                        <p:submenu class="btn" label="Cadastros" icon="ui-icon-document">
+                        
+                        <p:menuitem value="Sk8line" action="#{menuMB.acaoMnPrincipal()}" />
+                        <p:submenu styleClass="btn btn-sucess" label="Cadastros" icon="ui-icon-document">
                             <p:menuitem value="Usuários" url="usuarios.xhtml" actionListener="#{menuMB.acaoMnUsuario()}" update="messages" />
                             <p:separator />
                             <p:menuitem value="Clientes" url="#" actionListener="#{menuMB.acaoMnCliente()}"/>
                             <p:menuitem value="Funcionários" url="#" actionListener="#{menuMB.acaoMnFuncionario()}"/>
                             <p:menuitem value="Produtos" url="#" actionListener="#{menuMB.acaoMnProduto()}"/>
                         </p:submenu>
-
 
                         <f:facet name="options">
                             <p:inputText style="margin-right:10px" placeholder="Pesquisar"/>

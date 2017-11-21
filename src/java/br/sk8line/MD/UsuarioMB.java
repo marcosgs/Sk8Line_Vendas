@@ -26,11 +26,24 @@ public class UsuarioMB {
         return usuario;
     }
     
+    public List<Usuario> consultarTodos(){
+        usuarios = ejb.consultarTodos();
+        return usuarios;
+    }
+    
     public String salvar() throws Exception{
         
         usuario = ejb.salvar(usuario);
         
         return "usuarios";
+    }
+    
+    public String irCadastroUsuarios(){
+        return "cadusuario";
+    }
+    
+    public void remover(){
+        
     }
     
 }

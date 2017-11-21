@@ -7,6 +7,10 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class MenuMB {
     
+    public String acaoMnPrincipal(){
+        return "main";
+    }
+    
     public String acaoMnUsuario(){
         return "usuarios";
     }
