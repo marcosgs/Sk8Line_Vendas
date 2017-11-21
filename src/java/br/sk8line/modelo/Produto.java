@@ -8,9 +8,11 @@ import javax.persistence.Column;
 import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -32,8 +34,12 @@ public class Produto implements Serializable {
     @Column(name="DC_PRODUCT")
     private String nome;
     
-    @Column(name="NU_PRICE")
+    @Column(name="NU_PRICE_SALE")
     private float preco; 
+    
+    @OneToOne
+    @JoinColumn (name="CD_CATEGORY")
+    private Categoria categoria;
     
     @Column(name="DT_CREATE")
     @Temporal(TemporalType.DATE)

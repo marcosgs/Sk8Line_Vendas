@@ -10,6 +10,11 @@
                 Sk8Line
             </ui:insert>
         </title>
+        
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        
         <link rel="icon" href="imagens/logo_sk8line.jpg"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -17,30 +22,36 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
         
-        <script name="jquery/jquery.js" library="primefaces"></script>
     </h:head>
     <h:body>
         <ui:include src="header.xhtml"/>
-        <h:form>
-            <h:panelGrid id ="cadastro_usuario" columns="2">
-                <h:outputText value="Nome: "/>
-                <h:inputText id="nome" value="#{usuarioMB.usuario.nome}" />
-                
-                <h:outputText value="Login: "/>
-                <h:inputText id="login" value="#{usuarioMB.usuario.login}"/>
-                
-                <h:outputText value="Senha:"/>
-                <h:inputSecret id="senha" value="#{usuarioMB.usuario.senha}"/>
-                
-                <h:outputText value="Tipo de Usuário " />
-                <h:selectOneMenu id="perfil" value="#{usuarioMB.usuario.adminInd}">
-                    <f:selectItem itemLabel="S" itemValue="Administrador"/>
-                    <f:selectItem itemLabel="N" itemValue="Usuario"/>
-                </h:selectOneMenu> 
-                <h:commandButton id="cadastrar" value="Salvar" action="#{usuarioMB.salvar()}"/>
-                <h:commandButton id="cancelar" value="Cancelar" action="#{usuarioMB.cancelar()}"/>
-            </h:panelGrid>
-        </h:form>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <h:form class="form-group">
+                    <h:panelGrid id ="cadastro_usuario" columns="2">
+
+
+                        <h:outputText value="Nome: "/>
+                        <h:inputText id="nome" value="#{usuarioMB.usuario.nome}" />
+
+                        <h:outputText value="Login: "/>
+                        <h:inputText id="login" value="#{usuarioMB.usuario.login}"/>
+
+                        <h:outputText value="Senha:"/>
+                        <h:inputSecret id="senha" value="#{usuarioMB.usuario.senha}"/>
+
+                        <h:outputText value="Tipo de Usuário " />
+                        <h:selectOneMenu id="perfil" value="#{usuarioMB.usuario.indTipo}">
+                            <f:selectItem itemLabel="A" itemValue="Administrador"/>
+                            <f:selectItem itemLabel="U" itemValue="Usuario"/>
+                        </h:selectOneMenu> 
+                        <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-block" value="Salvar" action="#{usuarioMB.salvar()}"/>
+                        <h:commandButton id="cancelar" class="btn btn-lg btn-primary btn-block" value="Cancelar" action="#{usuarioMB.cancelar()}"/>
+                    </h:panelGrid>
+                </h:form>
+            </div>
+        </div>
     </h:body>
 </html>
 

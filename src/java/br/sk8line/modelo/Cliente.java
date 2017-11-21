@@ -11,9 +11,9 @@ import javax.persistence.SequenceGenerator;
 import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 
 @NamedQueries({
     @NamedQuery(name="Cliente.consultarTodos",
@@ -51,6 +51,9 @@ public class Cliente implements Serializable{
     @Column(name="DT_LAST_UPD")
     @Temporal(TemporalType.DATE)
     private Date dataAtual;
+    
+    @OneToOne(mappedBy = "Cliente", optional = true )
+    private Usuario usuario;
     
     public Long getId() {
         return id;

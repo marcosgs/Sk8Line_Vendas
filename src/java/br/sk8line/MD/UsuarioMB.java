@@ -64,8 +64,10 @@ public class UsuarioMB {
         return "cadusuario";
     }
     
-    public void remover(){
+    public String remover(){
         
+        
+        return "usuarios";
     }
     
 }

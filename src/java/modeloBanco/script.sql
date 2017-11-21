@@ -18,6 +18,8 @@ create table SK8LINE.TB_USERS(
 
 create sequence SK8LINE.USERS_SEQ increment by 1 start with 1 nocache nocycle;
 
+alter table SK8LINE.TB_USERS add constraint CS_KEY_USER unique (DC_NAME_USER );
+
 insert into SK8LINE.TB_USERS(CD_USER, DC_NAME_USER, DC_PASSWORD, DC_NAME, IN_TYPE_USER, DT_CREATE, DT_LAST_UPD) values(USERS_SEQ.NEXTVAL, 'admin','admin', 'Admin Master', 'A',sysdate,sysdate);
 
 insert into SK8LINE.TB_USERS(CD_USER, DC_NAME_USER, DC_PASSWORD, DC_NAME, IN_TYPE_USER, DT_CREATE, DT_LAST_UPD) values(USERS_SEQ.NEXTVAL, 'marcos','1234', 'Marcos', 'A',sysdate,sysdate);
@@ -53,9 +55,9 @@ create table SK8LINE.TB_CLIENTS(
 create sequence  SK8LINE.CLIENT_SEQ  increment by 1 start with 1 nocache nocycle;
 
 create table SK8LINE.TB_UF(
-    CD_UF numeric(18) not null primary key,  --Código
-    CD_ABREV_UF CHAR(2) not null,
-    DC_UF   varchar2(200) not null
+    CD_UF numeric(18) not null primary key,  --Código do uf
+    CD_ABREV_UF CHAR(2) not null,            --Sigla do Estado
+    DC_UF   varchar2(200) not null           --Descrição
 );
 
 create sequence  SK8LINE.UF_SEQ  increment by 1 start with 1 nocache nocycle;
@@ -71,6 +73,7 @@ create sequence  SK8LINE.CITY_SEQ  increment by 1 start with 1 nocache nocycle;
 create table SK8LINE.TB_ADDRESS(
     CD_ADDRESS       numeric(18) not null primary key,  --Código
     DC_ADDRESS       varchar2(200) not null,
+    DC_DISTRICT      varchar2(200) not null,
     CD_CLIENT        numeric(18) not null,
     IN_TYPE_ADDRESS  char(1),                           -- E- Endereço de Entrega, C - Cobrança e nulo sem tipo.
     CD_CITY          numeric(18) not null
@@ -78,10 +81,46 @@ create table SK8LINE.TB_ADDRESS(
 
 create sequence  SK8LINE.ADDRESS_SEQ  increment by 1 start with 1 nocache nocycle;
 
-create table SK8LINE.EMPLOYEE(
-    CD_EMPLOYEE
-    DC_EMPLOYEE
-    DT_HIRE
-    DT_BIRTH_DATE date not null,
+create table SK8LINE.TB_EMPLOYEE(
+    CD_EMPLOYEE   numeric(18) not null primary key,  --Código
+    DC_EMPLOYEE   varchar2(200) not null,
+    DT_HIRE       date not null,
+    DT_BIRTH_DATE date not null
 );
+
+create sequence  SK8LINE.EMPLOYEE_SEQ  increment by 1 start with 1 nocache nocycle;
+
+create table SK8LINE.TB_ORDER(
+    CD_ORDER       numeric(18) not null primary key,  --Código
+    DC_ORDER       varchar2(200) not null,
+    DT_ORDER       date not null,
+    CD_CLIENT      numeric(18) not null,
+    VL_DISCOUNT    numeric(18,2) ,
+    VL_TOTAL       numeric(18,2) not null
+);
+
+create sequence  SK8LINE.ORDER_SEQ  increment by 1 start with 1 nocache nocycle;
+
+create table SK8LINE.TB_ORDER_ITEM(
+    CD_ORDER_ITEM    numeric(18) not null primary key,  --Código
+    CD_ORDER         numeric(18) not null,
+    CD_PRODUCT       numeric(18) not null, 
+    NU_QUANTITY      numeric(18) not null,
+    VL_UNIT          numeric(18,2) not null
+);
+
+create sequence  SK8LINE.ORDER_ITEM_SEQ  increment by 1 start with 1 nocache nocycle;
+
+Alter table SK8LINE.TB_USERS add constraint FK_USERS_CLIENT foreign key (CD_CLIENT) references SK8LINE.TB_CLIENTS(CD_CLIENT);
+
+Alter table SK8LINE.TB_USERS add constraint FK_USERS_EMPLOYEE foreign key (CD_EMPLOYEE) references SK8LINE.TB_EMPLOYEE(CD_EMPLOYEE);
+
+alter table SK8LINE.TB_PRODUCTS add constraint FK_PRODUCTS_CATEGORY foreign key (CD_CATEGORY) references SK8LINE.TB_CATEGORY(CD_CATEGORY);
+
+alter table SK8LINE.TB_CITY add constraint FK_CITY_UF foreign key (CD_UF) references SK8LINE.TB_UF(CD_UF);
+
+alter table SK8LINE.TB_ORDER add constraint FK_ORDER_CLIENT foreign key (CD_CLIENT) references SK8LINE.TB_CLIENTS(CD_CLIENT);
+
+alter table SK8LINE.TB_ORDER_ITEM add constraint FK_ORDER_PRODUCT foreign key (CD_PRODUCT) references SK8LINE.TB_PRODUCTS(CD_PRODUCT);
+
 

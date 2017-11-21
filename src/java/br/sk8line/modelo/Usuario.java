@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -51,12 +52,8 @@ public class Usuario implements Serializable{
     @Column(name="DC_NAME",nullable=false)
     private String nome;
     
-    @Column(name="IN_ADMIN_IND")
-    private String adminInd;
-    
-    @OneToOne
-    @Column(name="CD_CLIENT")
-    private Cliente cliente;
+    @Column(name="IN_TYPE_USER")
+    private String indTipo;
     
     @Column(name="DT_CREATE")
     @Temporal(TemporalType.DATE)
@@ -65,6 +62,10 @@ public class Usuario implements Serializable{
     @Column(name="DT_LAST_UPD")
     @Temporal(TemporalType.DATE)
     private Date dataAtual;
+    
+    @OneToOne
+    @JoinColumn (name="CD_CLIENT")
+    private Cliente cliente;
     
     public Long getId() {
         return id;
@@ -79,7 +80,7 @@ public class Usuario implements Serializable{
     }
 
     public void setLogin(String login) {
-        this.login = login;
+        this.login = login.trim().toLowerCase();
     }
 
     public String getSenha() {
@@ -98,14 +99,14 @@ public class Usuario implements Serializable{
         this.nome = nome;
     }
 
-    public String getAdminInd() {
-        return adminInd;
+    public String getIndTipo() {
+        return indTipo;
     }
 
-    public void setAdminInd(String AdminInd) {
-        this.adminInd = adminInd;
+    public void setIndTipo(String indTipo) {
+        this.indTipo = indTipo;
     }
-
+    
     public Date getDataCriacao() {
         return dataCriacao;
     }
@@ -128,26 +129,6 @@ public class Usuario implements Serializable{
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
-    
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
-    }
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-                 return true;
-        if (obj == null)
-                 return false;
-        if (getClass() != obj.getClass())
-                 return false;
-
-        return (obj instanceof AbstractBean) ? (this.getId() == null ? this == obj : this.getId().equals(((AbstractBean)obj).getId())):false;
     }
 }
 

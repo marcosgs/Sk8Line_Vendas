@@ -9,6 +9,10 @@
         <title>
             Sk8Line
         </title>
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        
         <link rel="icon" href="imagens/logo_sk8line.jpg"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -16,7 +20,6 @@
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
         
-        <script name="jquery/jquery.js" library="primefaces"></script>
     </h:head>
     <h:body>
         <ui:include src="header.xhtml"/>
@@ -29,32 +32,30 @@
                     <p:growl id="growl" life="2000" />
                     <h:commandButton id="novo" value="Novo" action="#{usuarioMB.irCadastroUsuarios()}"/>
                     
-
-                    <p:commandLink id="nonAjax" actionListener="#{usuarioMB.remover()}">
-                        <h:outputText value="Excluir" />
-                    </p:commandLink>
+                    <h:commandButton id="excluir"  class="btn btn-lg btn-primary " value="Excluir" action="#{usuarioMB.remover()}"/>
                 </h:form>
             </div>
-            <div class="row">
-                <h:form>
-                    <h:dataTable  value="#{usuarioMB.usuario}" var="usuario"  styleClass="table">
-                        <h:column >
-                            <f:facet name="header">ID</f:facet>
-                            <h:outputText value="#{usuario.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Nome</f:facet>
-                            <h:outputText value="#{usuario.nome}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Tipo</f:facet>
-                            <h:outputText value="#{usuario.tipo}"/>
-                        </h:column>
-                        <h:column >
-                            <h:commandButton value="Excluir" styleClass="btn btn-danger"/>
-                        </h:column>        
-                    </h:dataTable>
-                </h:form>
+            
+                    <h:form>
+                        <h:dataTable  value="#{usuarioMB.usuario}" var="usuario"  styleClass="table" class="table table-striped table-bordered table-list">
+                            <h:column >
+                                <f:facet name="header"  class="hidden-xs">ID</f:facet>
+                                <h:outputText  value="#{usuario.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Nome</f:facet>
+                                <h:outputText value="#{usuario.nome}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Tipo</f:facet>
+                                <h:outputText value="#{usuario.indTipo}"/>
+                            </h:column>
+                            <h:column >
+                                <h:commandButton value="Excluir" styleClass="btn btn-danger"/>
+                            </h:column>        
+                        </h:dataTable>
+                    </h:form>
+                </div>
             </div>
         </div>
         <script charset="UTF-8" type="text/javascript" src="js/jquery-3.2.1.min.js"> </script>

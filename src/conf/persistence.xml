@@ -3,6 +3,9 @@
   <persistence-unit name="Sk8Line_VendasPU" transaction-type="JTA">
     <jta-data-source>jdbc/Sk8line_Venda</jta-data-source>
     <class>br.sk8line.modelo.Usuario</class>
+    <class>br.sk8line.modelo.Cliente</class>
+    <class>br.sk8line.modelo.Produto</class>
+    <class>br.sk8line.modelo.Categoria</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <shared-cache-mode>ALL</shared-cache-mode>
     <properties>
