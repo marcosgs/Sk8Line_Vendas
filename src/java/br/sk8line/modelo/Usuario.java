@@ -51,7 +51,7 @@ public class Usuario implements Serializable{
     private String nome;
     
     @Column(name="IN_ADMIN_IND")
-    private String AdminInd;
+    private String adminInd;
     
     @Column(name="DT_CREATE")
     @Temporal(TemporalType.DATE)
@@ -94,11 +94,11 @@ public class Usuario implements Serializable{
     }
 
     public String getAdminInd() {
-        return AdminInd;
+        return adminInd;
     }
 
     public void setAdminInd(String AdminInd) {
-        this.AdminInd = AdminInd;
+        this.adminInd = adminInd;
     }
 
     public Date getDataCriacao() {
@@ -116,8 +116,6 @@ public class Usuario implements Serializable{
     public void setDataAtual(Date dataAtual) {
         this.dataAtual = dataAtual;
     }
-    
-    
     
     @Override
     public int hashCode() {
