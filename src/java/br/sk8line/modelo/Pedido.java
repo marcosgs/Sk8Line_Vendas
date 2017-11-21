@@ -4,9 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
+import java.io.Serializable;
 
 @Entity
-public class Pedido {
+public class Pedido implements Serializable{
 
     @Id
     private Long ID;

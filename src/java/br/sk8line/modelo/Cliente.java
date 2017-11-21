@@ -1,5 +1,6 @@
 package br.sk8line.modelo;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="TB_CLIENTS")
 @SequenceGenerator(name="CLIENT_SEQ", sequenceName = "CLIENT_SEQ", initialValue = 1 , allocationSize = 1)
-public class Cliente {
+public class Cliente implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="CLIENT_SEQ")
