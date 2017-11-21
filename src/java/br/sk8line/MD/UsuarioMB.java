@@ -4,6 +4,7 @@ import br.sk8line.ejb.UsuarioLocal;
 import br.sk8line.modelo.Usuario;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import java.util.List;
 
@@ -15,12 +16,33 @@ public class UsuarioMB {
     
     private List<Usuario> usuarios;
     
+    @ManagedProperty("#{usuario}")
+    private Usuario service;
+    
     @EJB
     private UsuarioLocal ejb;
     
     private void setUsuario(Usuario usuario){
         this.usuario = usuario;
     }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public Usuario getService() {
+        return service;
+    }
+
+    public void setService(Usuario service) {
+        this.service = service;
+    }
+    
+    
     
     public Usuario getUsuario(){
         return usuario;
