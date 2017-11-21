@@ -122,7 +122,7 @@ create table SK8LINE.TB_REVENUES(
     VL_TOTAL            numeric(18,2) not null
 );
 
-create sequence  SK8LINE.ORDER_SEQ  increment by 1 start with 1 nocache nocycle;
+create sequence  SK8LINE.REVENUES_SEQ  increment by 1 start with 1 nocache nocycle;
 
 create table SK8LINE.TB_REVENUES_ITEM(
     CD_REVENUES_ITEM  numeric(18) not null primary key,  --Código
@@ -132,7 +132,7 @@ create table SK8LINE.TB_REVENUES_ITEM(
     VL_UNIT           numeric(18,2) not null
 );
 
-
+create sequence  SK8LINE.REVENUES_ITEMS_SEQ  increment by 1 start with 1 nocache nocycle;
 
 Alter table SK8LINE.TB_USERS add constraint FK_USERS_CLIENT foreign key (CD_CLIENT) references SK8LINE.TB_CLIENTS(CD_CLIENT);
 
