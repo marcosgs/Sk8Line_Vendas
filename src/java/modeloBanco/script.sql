@@ -9,11 +9,11 @@ create table SK8LINE.TB_USERS(
     DC_NAME_USER  varchar2(200) not null,      --Login do usuário
     DC_PASSWORD   varchar2(500) not null,      --Senha do Usuário Criptografada
     DC_NAME       varchar(200) not null,       -- Nome completo do usuário
-    IN_TYPE_USER  CHAR(1) not null,            --Indicador se administrador ou Usuário
-    CD_CLIENT     numeric(18),                  --FK com tabela Cliente(Código do Cliente)
+    IN_ADMIN      CHAR(1) not null,            --Indicador se administrador
+    CD_CLIENT     numeric(18),                 --FK com tabela Cliente(Código do Cliente)
     CD_EMPLOYEE   numeric(18),
-    DT_CREATE     date not null,                --Data de criação do registro
-    DT_LAST_UPD   date not null                 --Data da última atualização
+    DT_CREATE     date not null,               --Data de criação do registro
+    DT_LAST_UPD   date not null                --Data da última atualização
 );
 
 create sequence SK8LINE.USERS_SEQ increment by 1 start with 1 nocache nocycle;

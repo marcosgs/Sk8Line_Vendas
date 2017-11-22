@@ -42,12 +42,12 @@ public class ClienteMB {
     
     public String salvar() throws Exception{
         cliente = ejb.salvar(cliente);
-        return "listClientes";
+        return "clientesCad";
     }
     
     public String remover(Long id){
         ejb.remover(id);
-        return "listClientes";
+        return "clientes";
     }
     
 }

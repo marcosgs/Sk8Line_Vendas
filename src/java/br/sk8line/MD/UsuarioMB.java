@@ -19,10 +19,11 @@ public class UsuarioMB {
     
     private List<Usuario> usuarios;
     
-    @PostConstruct
-    public void init() {
-        usuarios = ejb.consultarTodos();
-    }
+//    //Método para preencher dataTable
+//    @PostConstruct
+//    public void init() {
+//        usuarios = consultarTodos();
+//    }
     
     private void setUsuario(Usuario usuario){
         this.usuario = usuario;
@@ -40,29 +41,38 @@ public class UsuarioMB {
         return usuario;
     }
     
+    //Consulta todos os usuários
     public List<Usuario> consultarTodos(){
         usuarios = ejb.consultarTodos();
         return usuarios;
     }
     
-    
     public String salvar() throws Exception{
         usuario = ejb.salvar(usuario);
-        return "listUsuarios";
+        return "usuarios";
     }
     
     //Vai para a tela de Cadastro de Usuários
     public String irCadastroUsuarios(){
-        return "cadusuario";
+        return "usuarioCad";
     }
     
     public String remover(Long id){
         ejb.remover(id);
-        return "listUsuarios";
+        
+        //Consulta Todos os usuários
+        usuarios = consultarTodos();
+        
+        return "usuarios";
     }
     
     public String cancelarCad(){
-        return "listUsuarios";
+        return "usuarios";
     }
     
+    public String alterar(Long id){
+        
+        usuario = ejb.consultarPorId(id);        
+        return "usuarioCad"; 
+    }
 }

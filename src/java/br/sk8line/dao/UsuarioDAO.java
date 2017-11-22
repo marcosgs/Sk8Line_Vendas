@@ -1,5 +1,6 @@
 package br.sk8line.dao;
 
+import br.sk8line.EM.EntityManagerUtil;
 import br.sk8line.modelo.Usuario;
 import java.util.Date;
 import java.util.List;
@@ -10,28 +11,14 @@ import javax.persistence.Query;
 
 public class UsuarioDAO {
     
-    private EntityManagerFactory emf;
-    
     private EntityManager em;
     
-    private EntityManager getEm() {
-        try {
-            emf= Persistence.createEntityManagerFactory("Sk8Line_VendasPU");
-            
-            em = emf.createEntityManager();
-        }finally {
-            emf.close();
-        }
-        
-        return em;
-    }
-    
-    
     public UsuarioDAO(EntityManager em){
-        this.em=em;
+        this.em = em;
     }
     
     public Usuario salvar(Usuario u) throws Exception{
+        
         
         Date dataAtual = new Date();
         u.setDataAtual(dataAtual);

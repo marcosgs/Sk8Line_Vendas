@@ -12,7 +12,7 @@ public class MenuMB {
     }
     
     public String acaoMnUsuario(){
-        return "listUsuarios";
+        return "usuarios";
     }
     
     public String acaoMnCliente(){

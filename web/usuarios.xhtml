@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>
+            Sk8Line
+        </title>
+        <meta charset="utf-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        
+        <link rel="icon" href="imagens/logo_sk8line.jpg"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="StyleSheet" type="text/css" href="css/principal.css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700"/>
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml"/>
+        <div class="container-fluid">
+            <div class="row">
+                <h1 class="titulo-principal"> Usuários </h1>
+            </div>
+            <div >
+                <h:form>
+                    <p:growl id="growl" life="2000" />
+                    <h:commandButton id="novo"  class="btn btn-default btn-success " value="Novo" action="#{usuarioMB.irCadastroUsuarios()}"/>
+                </h:form>
+            </div>
+            <div class="form-group">
+                <h:form>
+                    <h:dataTable  value="#{usuarioMB.usuarios}" var="usuario"  styleClass="table" class="table table-list table-striped table-bordered table-list">
+                        <h:column>
+                            <f:facet name="header" >ID</f:facet>
+                            <h:outputText  value="#{usuario.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Nome</f:facet>
+                            <h:commandLink action="#{usuarioMB.alterar(usuario.id)}">
+                                <h:outputText value="#{usuario.nome}"/>
+                            </h:commandLink>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">login</f:facet>
+                            <h:outputText value="#{usuario.login}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Tipo</f:facet>
+                            <h:outputText value="#{usuario.indTipo}"/>
+                        </h:column>
+                        <h:column >
+                            <h:commandButton value="Excluir" actionListener="#{usuarioMB.remover(usuario.id)}" styleClass="btn btn-danger"/>
+                        </h:column>        
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </div>
+        <script charset="UTF-8" type="text/javascript" src="js/jquery-3.2.1.min.js"> </script>
+	<script charset="UTF-8" type="text/javascript" src="js/bootstrap.min.js" ></script>
+	<script charset="UTF-8" type="text/javascript" src="js/validalogin.js" ></script>
+    </h:body>
+</html>
+

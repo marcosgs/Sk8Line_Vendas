@@ -25,11 +25,11 @@ drop sequence  SK8LINE.REVENUES_SEQ;
 drop table SK8LINE.TB_REVENUES_ITEM;
 drop sequence  SK8LINE.REVENUES_ITEMS_SEQ;
 
-drop table SK8LINE.TB_CLIENTS;
-drop sequence  SK8LINE.CLIENT_SEQ;
-
 drop table SK8LINE.TB_PRODUCTS;
 drop sequence  SK8LINE.PRODUCT_SEQ;
 
 drop table SK8LINE.TB_CATEGORY;
 drop sequence  SK8LINE.CATEGORY_SEQ;
+
+drop table SK8LINE.TB_CLIENTS;
+drop sequence  SK8LINE.CLIENT_SEQ;

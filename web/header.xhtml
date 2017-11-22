@@ -14,7 +14,7 @@
                         
                         <p:menuitem value="Sk8line" action="#{menuMB.acaoMnPrincipal()}" />
                         <p:submenu  label="Cadastros">
-                            <p:menuitem value="Usuários" url="usuarios.xhtml" actionListener="#{menuMB.acaoMnUsuario()}" update="messages" />
+                            <p:menuitem value="Usuários" url="usuarios.xhtml" actionListener="#{menuMB.acaoMnUsuario()}" update="messages" rendered="#{usuarioMB.usuario.indAdmin}"/>
                             <p:separator />
                             <p:menuitem value="Clientes" url="#" actionListener="#{menuMB.acaoMnCliente()}"/>
                             <p:menuitem value="Funcionários" url="#" actionListener="#{menuMB.acaoMnFuncionario()}"/>

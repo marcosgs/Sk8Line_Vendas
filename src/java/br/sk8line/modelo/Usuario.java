@@ -47,8 +47,8 @@ public class Usuario implements Serializable{
     @Column(name="DC_NAME", nullable=false)
     private String nome;
     
-    @Column(name="IN_TYPE_USER", nullable=false)
-    private String indTipo;
+    @Column(name="IN_ADMIN", nullable=false)
+    private String indAdmin;
     
     @Column(name="DT_CREATE")
     @Temporal(TemporalType.DATE)
@@ -98,12 +98,12 @@ public class Usuario implements Serializable{
         this.nome = nome;
     }
 
-    public String getIndTipo() {
-        return indTipo;
+    public String getIndAdmin() {
+        return indAdmin;
     }
 
-    public void setIndTipo(String indTipo) {
-        this.indTipo = indTipo;
+    public void setIndAdmin(String indAdmin) {
+        this.indAdmin = indAdmin;
     }
     
     public Date getDataCriacao() {
