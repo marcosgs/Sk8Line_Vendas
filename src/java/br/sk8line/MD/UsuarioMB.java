@@ -4,7 +4,6 @@ import br.sk8line.ejb.UsuarioLocal;
 import br.sk8line.modelo.Usuario;   
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import java.util.List;
 import javax.annotation.PostConstruct;

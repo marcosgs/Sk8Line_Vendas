@@ -51,6 +51,4 @@ public class Cidade implements Serializable{
     public void setUf(UF uf) {
         this.uf = uf;
     }
-    
-    
 }

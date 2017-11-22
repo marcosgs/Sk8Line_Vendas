@@ -7,13 +7,13 @@
     <class>br.sk8line.modelo.Produto</class>
     <class>br.sk8line.modelo.Categoria</class>
     <class>br.sk8line.modelo.Cidade</class>
-    <class>br.sk8line.modelo.Funcionario</class>
-    <class>br.sk8line.modelo.UF</class>
+    <class>br.sk8line.modelo.Endereco</class>
     <class>br.sk8line.modelo.Faturamento</class>
     <class>br.sk8line.modelo.FaturamentoItem</class>
+    <class>br.sk8line.modelo.Funcionario</class>
     <class>br.sk8line.modelo.Pedido</class>
     <class>br.sk8line.modelo.PedidoItem</class>
-    <class>br.sk8line.modelo.Endereco</class>
+    <class>br.sk8line.modelo.UF</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <shared-cache-mode>ALL</shared-cache-mode>
     <properties>

@@ -1,6 +1,7 @@
 package br.sk8line.dao;
 
 import br.sk8line.modelo.Usuario;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -14,7 +15,14 @@ public class UsuarioDAO {
     }
     
     public Usuario salvar(Usuario u) throws Exception{
-        if (u.getId()==null){
+        
+        Date dataAtual = new Date();
+        u.setDataAtual(dataAtual);
+        
+        if (u.getId()==null){    
+            //Atribui a data atual ao
+            u.setDataCriacao(dataAtual);
+            
             em.persist(u);
         }else{
             if(!em.contains(u)){
