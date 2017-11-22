@@ -25,5 +25,5 @@ public class FuncionarioBean {
     public void remover(Long id){
         FuncionarioDAO dao = new FuncionarioDAO(em);
         dao.remover(id);
-    }s
+    }
 }

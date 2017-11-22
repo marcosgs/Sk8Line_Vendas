@@ -2,6 +2,7 @@ package br.sk8line.modelo;
 
 /* Verificar este exemplo https://www.devmedia.com.br/jsf-session-criando-um-modulo-de-login/30975 */
 
+
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -42,13 +43,13 @@ public class Usuario implements Serializable{
     @Column(name="DC_NAME_USER", nullable=false, unique = true, length = 200)
     private String login;
     
-    @Column(name="DC_PASSWORD",nullable=false)
+    @Column(name="DC_PASSWORD", nullable=false, length = 500)
     private String senha;
     
-    @Column(name="DC_NAME",nullable=false)
+    @Column(name="DC_NAME", nullable=false)
     private String nome;
     
-    @Column(name="IN_TYPE_USER")
+    @Column(name="IN_TYPE_USER", nullable=false)
     private String indTipo;
     
     @Column(name="DT_CREATE")

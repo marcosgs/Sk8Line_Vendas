@@ -1,12 +1,12 @@
 package br.sk8line.Enum;
 
-public enum tipoUsuario {
+public enum indTipo {
     ADMINISTRADOR("A"),
     USUARIO("U");
     
     private String indTipo;
     
-    tipoUsuario(String indTipo){
+    private indTipo(String indTipo){
         this.indTipo = indTipo;
     }
     

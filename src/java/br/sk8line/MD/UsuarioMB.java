@@ -1,7 +1,7 @@
 package br.sk8line.MD;
 
 import br.sk8line.ejb.UsuarioLocal;
-import br.sk8line.modelo.Usuario;
+import br.sk8line.modelo.Usuario;   
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -55,7 +55,8 @@ public class UsuarioMB {
         return "cadusuario";
     }
     
-    public String remover(){
+    public String remover(Long id){
+        ejb.remover(id);
         return "usuarios";
     }
     
