@@ -17,15 +17,15 @@ import javax.persistence.Table;
 public class Cidade implements Serializable{
     
     @Id
-    @Column(name="CD_CITY")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="CITY_SEQ")
+    @Column(name="CD_CITY", length = 200)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CITY_SEQ")
     private Long id;
     
-    @Column(name="DC_CITY")
+    @Column(name="DC_CITY", nullable = false, length = 200)
     private String descricao;
     
     @OneToOne
-    @JoinColumn(name="CD_UF")
+    @JoinColumn(name="CD_UF", nullable = false)
     private UF uf;
 
     public Long getId() {

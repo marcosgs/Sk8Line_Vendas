@@ -9,27 +9,32 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name="TB_REVENUES_ITEM")
-@SequenceGenerator(name="faturamentoItemSeq", sequenceName = "REVENUES_ITEMS_SEQ", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name="REVENUES_ITEMS_SEQ", sequenceName = "REVENUES_ITEMS_SEQ", initialValue = 1, allocationSize = 1)
 public class FaturamentoItem implements Serializable{
     
     @Id
-    @Column(name="CD_REVENUES_ITEM")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "faturamentoItemSeq")
+    @Column(name="CD_REVENUES_ITEM",length = 18)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "REVENUES_ITEMS_SEQ")
     private Long id;
     
-    @Column(name="NU_QUANTITY", length = 18)
+    @Column(name="NU_QUANTITY", nullable = false , length = 18)
     private int quantidade;
     
-    @Column(name="VL_UNIT", length = 18, precision = 2)
+    @Column(name="VL_UNIT", nullable = false, length = 18, precision = 2)
     private double valorUnitario;
     
+    @ManyToOne
+    @JoinColumn(name = "CD_REVENUES",nullable = false)
     private Faturamento faturamento;
     
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "CD_PRODUCT", nullable = false)
     private Produto produto;
 
     public Long getId() {

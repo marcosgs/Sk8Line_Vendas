@@ -34,8 +34,8 @@ import org.jboss.weld.bean.AbstractBean;
 public class Usuario implements Serializable{
     
     @Id
+    @Column(name="CD_USER")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuarioSeq")
-    @Column(name="CD_USER", nullable = false)
     private Long id;
 
     @Column(name="DC_NAME_USER", nullable=false, unique = true, length = 200)
@@ -47,7 +47,7 @@ public class Usuario implements Serializable{
     @Column(name="DC_NAME", nullable=false)
     private String nome;
     
-    @Column(name="IN_ADMIN", nullable=false)
+    @Column(name="IN_ADMIN", nullable=false, length = 1)
     private String indAdmin;
     
     @Column(name="DT_CREATE")

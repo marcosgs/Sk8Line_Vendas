@@ -15,12 +15,12 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 @Table(name="TB_ORDER_ITEM")
-@SequenceGenerator(name="pedidoItemSeq", sequenceName = "ORDER_ITEM_SEQ", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name="ORDER_ITEM_SEQ", sequenceName = "ORDER_ITEM_SEQ", initialValue = 1, allocationSize = 1)
 public class PedidoItem implements Serializable{
     
     @Id
-    @Column(name="CD_ORDER_ITEM", nullable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedidoItemSeq")
+    @Column(name="CD_ORDER_ITEM")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_ITEM_SEQ")
     private Long id;
     
     @Column(name="NU_QUANTITY", nullable = false, length = 18)
@@ -30,11 +30,11 @@ public class PedidoItem implements Serializable{
     private double valorUnitario;
     
     @ManyToOne
-    @JoinColumn(name="CD_ORDER")
+    @JoinColumn(name="CD_ORDER", nullable = false)
     private Pedido pedido;
     
-    @OneToOne
-    @JoinColumn(name="CD_PRODUCT")
+    @ManyToOne
+    @JoinColumn(name="CD_PRODUCT", nullable = false)
     private Produto produto;
 
     public Long getId() {

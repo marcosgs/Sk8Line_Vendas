@@ -1,5 +1,6 @@
 package br.sk8line.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.OneToOne;
@@ -9,11 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="TB_EMPLOYEE")
 @SequenceGenerator(name="EMPLOYEE_SEQ", sequenceName = "EMPLOYEE_SEQ", initialValue = 1, allocationSize = 1)
-public class Funcionario {
+public class Funcionario implements Serializable{
     
     @Id
     @Column(name="CD_EMPLOYEE")
@@ -24,9 +27,11 @@ public class Funcionario {
     private String nome;
     
     @Column(name="DT_HIRE")
+    @Temporal(TemporalType.DATE)
     private Date dataContratacao;
     
     @Column(name="DT_BIRTH_DATE")
+    @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     
     @OneToOne(mappedBy = "Funcionario", optional = true )
@@ -71,5 +76,6 @@ public class Funcionario {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
     
 }

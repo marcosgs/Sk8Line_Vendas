@@ -27,8 +27,8 @@ import javax.persistence.TemporalType;
 public class Produto implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator= "PRODUCT_SEQ")
     @Column(name="CD_PRODUCT")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator= "PRODUCT_SEQ")
     private Long id;
     
     @Column(name="DC_PRODUCT")

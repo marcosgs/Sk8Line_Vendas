@@ -15,11 +15,11 @@ import javax.persistence.SequenceGenerator;
 public class Categoria implements Serializable{
     
     @Id
-    @Column(name= "CD_CATEGORY" , nullable = false)
+    @Column(name= "CD_CATEGORY", length = 18)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="CATEGORY_SEQ")
     private Long id;
     
-    @Column(name="DC_CATEGORY", nullable = false)
+    @Column(name="DC_CATEGORY", nullable = false, length = 200)
     private String descricao;
     
     public Long getId() {

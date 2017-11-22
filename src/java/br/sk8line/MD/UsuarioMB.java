@@ -59,10 +59,7 @@ public class UsuarioMB {
     
     public String remover(Long id){
         ejb.remover(id);
-        
-        //Consulta Todos os usuários
         usuarios = consultarTodos();
-        
         return "usuarios";
     }
     
@@ -74,5 +71,9 @@ public class UsuarioMB {
         
         usuario = ejb.consultarPorId(id);        
         return "usuarioCad"; 
+    }
+    
+    public boolean validaAdmin(){
+        return usuario.getIndAdmin().equals('S');
     }
 }

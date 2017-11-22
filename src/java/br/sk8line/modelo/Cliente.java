@@ -19,6 +19,11 @@ import javax.persistence.TemporalType;
     @NamedQuery(name="Cliente.consultarTodos",
             query="select c "+
                   "from Cliente c"
+    ),
+    
+    @NamedQuery(name="Cliente.consultaPorCNPJCPF",
+                query = "select c from Cliente c " +
+                        " where c.numeroCNPJCPF = :numeroCNPJCPF"
     )
 })
 
@@ -28,27 +33,28 @@ import javax.persistence.TemporalType;
 public class Cliente implements Serializable{
     
     @Id
+    @Column(name="CD_CLIENT", length = 300)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="CLIENT_SEQ")
-    @Column(name="CD_CLIENT")
     private Long id;
     
     @Column(name="DC_CLIENT",nullable = false,length = 200)
     private String nome;
 
-    @Column(name="IN_TYPE_CLIENT")
+    @Column(name="IN_TYPE_CLIENT", nullable = false)
     private String tipoCliente;
     
-    @Column(name="DC_CPF_CNPJ", nullable = false)
+    @Column(name="DC_CPF_CNPJ", nullable = false, length = 20)
     private String numeroCNPJCPF;
     
     @Column(name="DT_BIRTH_DATE", nullable=false)
+    @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     
-    @Column(name="DT_CREATE")
+    @Column(name="DT_CREATE", nullable=false)
     @Temporal(TemporalType.DATE)
     private Date dataCriacao;
     
-    @Column(name="DT_LAST_UPD")
+    @Column(name="DT_LAST_UPD", nullable=false)
     @Temporal(TemporalType.DATE)
     private Date dataAtual;
     

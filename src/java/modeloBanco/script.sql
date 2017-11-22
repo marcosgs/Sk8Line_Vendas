@@ -20,9 +20,9 @@ create sequence SK8LINE.USERS_SEQ increment by 1 start with 1 nocache nocycle;
 
 alter table SK8LINE.TB_USERS add constraint CS_KEY_USER unique (DC_NAME_USER );
 
-insert into SK8LINE.TB_USERS(CD_USER, DC_NAME_USER, DC_PASSWORD, DC_NAME, IN_TYPE_USER, DT_CREATE, DT_LAST_UPD) values(USERS_SEQ.NEXTVAL, 'admin','admin', 'Admin Master', 'A',sysdate,sysdate);
+insert into SK8LINE.TB_USERS(CD_USER, DC_NAME_USER, DC_PASSWORD, DC_NAME, IN_ADMIN, DT_CREATE, DT_LAST_UPD) values(USERS_SEQ.NEXTVAL, 'admin','admin', 'Admin Master', 'S',sysdate,sysdate);
 
-insert into SK8LINE.TB_USERS(CD_USER, DC_NAME_USER, DC_PASSWORD, DC_NAME, IN_TYPE_USER, DT_CREATE, DT_LAST_UPD) values(USERS_SEQ.NEXTVAL, 'marcos','1234', 'Marcos', 'A',sysdate,sysdate);
+insert into SK8LINE.TB_USERS(CD_USER, DC_NAME_USER, DC_PASSWORD, DC_NAME, IN_ADMIN, DT_CREATE, DT_LAST_UPD) values(USERS_SEQ.NEXTVAL, 'marcos','1234', 'Marcos', 'N',sysdate,sysdate);
 
 create table SK8LINE.TB_PRODUCTS(
     CD_PRODUCT      numeric(18) not null primary key, --Código único de identificação do produto

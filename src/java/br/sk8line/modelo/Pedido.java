@@ -16,12 +16,12 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="TB_ORDER")
-@SequenceGenerator(name="pedidoSeq",sequenceName = "ORDER_SEQ", allocationSize = 1, initialValue = 1)
+@SequenceGenerator(name="ORDER_SEQ",sequenceName = "ORDER_SEQ", allocationSize = 1, initialValue = 1)
 public class Pedido implements Serializable{
 
     @Id
-    @Column(name="CD_ORDER", nullable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedidoSeq")
+    @Column(name="CD_ORDER")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_SEQ")
     private Long id;
     
     @Column(name="DT_ORDER", nullable = false)

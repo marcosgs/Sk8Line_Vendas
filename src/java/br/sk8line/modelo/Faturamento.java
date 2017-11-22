@@ -1,5 +1,6 @@
 package br.sk8line.modelo;
 
+import java.util.List;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,16 +14,17 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
 @Table(name="TB_REVENUES")
-@SequenceGenerator(name="faturamentoSeq", sequenceName = "REVENUES_SEQ", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name="REVENUES_SEQ", sequenceName = "REVENUES_SEQ", initialValue = 1, allocationSize = 1)
 public class Faturamento implements Serializable{
     
     @Id
     @Column(name = "CD_REVENUES", nullable = false, updatable = false)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "faturamentoSeq" )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "REVENUES_SEQ" )
     private Long id;
     
     @ManyToOne
@@ -53,6 +55,10 @@ public class Faturamento implements Serializable{
     @Column(name="VL_TOTAL")
     private double valorTotal;
 
+    @OneToMany
+    @JoinColumn(name = "CD_REVENUES",nullable = false)
+    private List<FaturamentoItem> Itens;
+    
     public Long getId() {
         return id;
     }

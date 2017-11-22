@@ -13,7 +13,6 @@
         <meta charset="utf-8"></meta>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-        
         <link rel="icon" href="imagens/logo_sk8line.jpg"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -51,8 +50,8 @@
                             <h:outputText value="#{usuario.login}"/>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Tipo</f:facet>
-                            <h:outputText value="#{usuario.indTipo}"/>
+                            <f:facet name="header">Administrador</f:facet>
+                            <h:outputText value="#{usuario.indAdmin.replace("S", "Sim", "N", "Não")}"/>
                         </h:column>
                         <h:column >
                             <h:commandButton value="Excluir" actionListener="#{usuarioMB.remover(usuario.id)}" styleClass="btn btn-danger"/>

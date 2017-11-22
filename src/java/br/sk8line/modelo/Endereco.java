@@ -12,12 +12,12 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 @Table(name="TB_ADDRESS")
-@SequenceGenerator(name="enderecoSeq", sequenceName = "ADDRESS_SEQ", initialValue = 1, allocationSize = 1)
+@SequenceGenerator(name="ADDRESS_SEQ", sequenceName = "ADDRESS_SEQ", initialValue = 1, allocationSize = 1)
 public class Endereco implements Serializable {
     
     @Id
     @Column(name="CD_ADDRESS")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "enderecoSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADDRESS_SEQ")
     private Long id;
     
     @Column(name="DC_ADDRESS")
