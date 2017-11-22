@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -28,6 +29,7 @@ public class PedidoItem implements Serializable{
     private Pedido pedido;
     
     @OneToOne
+    @JoinColumn(name="CD_PRODUCT")
     private Produto produto;
 
     public Long getId() {

@@ -33,9 +33,7 @@ public class Pedido implements Serializable{
     @OneToOne
     private Cliente cliente;
     
-    @OneToMany
-    @JoinColumn(name="CD_ORDER")
-    private Produto produto;
+    
 
     public Long getId() {
         return id;
@@ -84,16 +82,5 @@ public class Pedido implements Serializable{
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-    
-    
-    
     
 }

@@ -7,7 +7,6 @@ import br.sk8line.dao.ProdutoDAO;
 import java.util.List;
 import javax.ejb.Stateless;
 
-
 @Stateless
 public class ProdutoBean implements ProdutoLocal{
     
@@ -36,7 +35,5 @@ public class ProdutoBean implements ProdutoLocal{
         ProdutoDAO dao = new ProdutoDAO(em);
         dao.remover(id);
     }
-    
-    
     
 }

@@ -47,7 +47,6 @@ public class UsuarioDAO {
             throw new Exception("Usuário não encontrado!");
             //return null;
         }
-        
     }
     
     public void remover( Long id){
