@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>
             <ui:insert name="title">
@@ -29,8 +30,10 @@
         <div class="container-fluid">
             <div class="row">
                 <h:form class="form-group">
-                    <h:panelGrid id ="cadastro_usuario" columns="2">
+                    <p:panelGrid id ="cadastro_usuario" columns="2">
 
+                        <h:outputText value=""/>
+                        <h:inputHidden  id="nome" value="#{usuarioMB.usuario.id}" />
 
                         <h:outputText value="Nome Completo: "/>
                         <h:inputText id="nome" value="#{usuarioMB.usuario.nome}" />
@@ -48,7 +51,7 @@
                         </h:selectOneMenu> 
                         <h:commandButton id="cadastrar" class="btn btn-lg btn-primary" value="Salvar" action="#{usuarioMB.salvar()}"/>
                         <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{usuarioMB.cancelarCad()}"/>
-                    </h:panelGrid>
+                    </p:panelGrid>
                 </h:form>
             </div>
         </div>
