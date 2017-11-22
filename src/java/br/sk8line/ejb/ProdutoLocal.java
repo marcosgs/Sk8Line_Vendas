@@ -7,7 +7,7 @@ import java.util.List;
 @Local
 public interface ProdutoLocal {
     
-    public Produto Salvar(Produto p) throws Exception;
+    public Produto salvar(Produto p) throws Exception;
     
     public Produto consultarPorId ( Long id);
     

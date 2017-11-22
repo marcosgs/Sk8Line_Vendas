@@ -13,7 +13,8 @@ public class ProdutoBean implements ProdutoLocal{
     @PersistenceContext(unitName = "Sk8Line_VendasPU")
     private EntityManager em;
     
-    public Produto Salvar(Produto p) throws Exception{
+    @Override
+    public Produto salvar(Produto p) throws Exception{
         ProdutoDAO dao = new ProdutoDAO(em);
         return dao.salvar(p);
     }

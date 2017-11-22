@@ -5,17 +5,22 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 @Table(name="TB_ORDER_ITEM")
+@SequenceGenerator(name="pedidoItemSeq", sequenceName = "ORDER_ITEM_SEQ", initialValue = 1, allocationSize = 1)
 public class PedidoItem implements Serializable{
     
     @Id
-    @Column(name="CD_ORDER_ITEM")
+    @Column(name="CD_ORDER_ITEM", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedidoItemSeq")
     private Long id;
     
     @Column(name="NU_QUANTITY", nullable = false, length = 18)

@@ -110,6 +110,14 @@ public class Cliente implements Serializable{
     public void setDataAtual(Date dataAtual) {
         this.dataAtual = dataAtual;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
     
     
     

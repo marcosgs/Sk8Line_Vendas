@@ -5,14 +5,19 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 @Table(name="TB_ADDRESS")
+@SequenceGenerator(name="enderecoSeq", sequenceName = "ADDRESS_SEQ", initialValue = 1, allocationSize = 1)
 public class Endereco implements Serializable {
     
     @Id
     @Column(name="CD_ADDRESS")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "enderecoSeq")
     private Long id;
     
     @Column(name="DC_ADDRESS")
@@ -77,7 +82,5 @@ public class Endereco implements Serializable {
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
-    
-    
     
 }

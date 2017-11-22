@@ -3,17 +3,22 @@ package br.sk8line.modelo;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name="TB_REVENUES_ITEM")
+@SequenceGenerator(name="faturamentoItemSeq", sequenceName = "REVENUES_ITEMS_SEQ", initialValue = 1, allocationSize = 1)
 public class FaturamentoItem implements Serializable{
     
     @Id
     @Column(name="CD_REVENUES_ITEM")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "faturamentoItemSeq")
     private Long id;
     
     @Column(name="NU_QUANTITY", length = 18)

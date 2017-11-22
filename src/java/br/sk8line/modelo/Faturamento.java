@@ -11,13 +11,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 @Table(name="TB_REVENUES")
+@SequenceGenerator(name="faturamentoSeq", sequenceName = "REVENUES_SEQ", initialValue = 1, allocationSize = 1)
 public class Faturamento implements Serializable{
     
     @Id
-    @Column(name = "CD_REVENUES")
+    @Column(name = "CD_REVENUES", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "faturamentoSeq" )
     private Long id;
     
     @ManyToOne

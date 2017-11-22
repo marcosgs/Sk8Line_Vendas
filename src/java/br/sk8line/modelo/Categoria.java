@@ -15,7 +15,7 @@ import javax.persistence.SequenceGenerator;
 public class Categoria implements Serializable{
     
     @Id
-    @Column(name= "CD_CATEGORY" )
+    @Column(name= "CD_CATEGORY" , nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="CATEGORY_SEQ")
     private Long id;
     

@@ -4,20 +4,27 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.OneToMany;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Table(name="TB_ORDER")
+@SequenceGenerator(name="pedidoSeq",sequenceName = "ORDER_SEQ", allocationSize = 1, initialValue = 1)
 public class Pedido implements Serializable{
 
     @Id
+    @Column(name="CD_ORDER", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedidoSeq")
     private Long id;
     
-    @Column(name="DT_ORDER")
+    @Column(name="DT_ORDER", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataPedido ;
     
@@ -31,10 +38,10 @@ public class Pedido implements Serializable{
     private double valorTotal;
     
     @OneToOne
+    @JoinColumn(name="CD_CLIENT", nullable = false)
     private Cliente cliente;
     
     
-
     public Long getId() {
         return id;
     }
