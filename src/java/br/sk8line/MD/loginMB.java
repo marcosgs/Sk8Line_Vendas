@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class loginMB {
     
-    private Usuario usuario = new Usuario();
+    private Usuario usuarioLogado = new Usuario();
     
     private String login;
     private String senha;
@@ -38,15 +38,15 @@ public class loginMB {
     
     public String validaLogin(){
         try{
-            usuario = ejb.consultarPorLogin(login);
+            usuarioLogado = ejb.consultarPorLogin(login);
 
-            if (this.login.equals(usuario.getLogin()) && this.senha.equals(usuario.getSenha())){
+            if (this.login.equals(usuarioLogado.getLogin()) && this.senha.equals(usuarioLogado.getSenha())){
                 return "main";
             }else{
                 FacesMessage msg = new FacesMessage("Usuário ou senha não encontrado");
                 FacesContext.getCurrentInstance().addMessage("xxx",msg);
             }
-            System.out.println(usuario.getLogin() + usuario.getSenha());
+            System.out.println(usuarioLogado.getLogin() + usuarioLogado.getSenha());
         }catch(Exception e){
             FacesMessage msg = new FacesMessage("Falha contate um administrador!");
             FacesContext.getCurrentInstance().addMessage("xxx",msg);
@@ -58,4 +58,7 @@ public class loginMB {
         
     }
     
+    public boolean validaAdmin(){
+        return usuarioLogado.getIndAdmin().equals('S');
+    }
 }

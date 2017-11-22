@@ -103,7 +103,7 @@ create sequence  SK8LINE.ORDER_SEQ  increment by 1 start with 1 nocache nocycle;
 
 create table SK8LINE.TB_ORDER_ITEM(
     CD_ORDER_ITEM  numeric(18) not null primary key,  --Código
-	CD_ORDER       numeric(18) not null, 
+    CD_ORDER       numeric(18) not null, 
     CD_PRODUCT     numeric(18) not null, 
     NU_QUANTITY    numeric(18) not null,
     VL_UNIT        numeric(18,2) not null
@@ -118,7 +118,7 @@ create table SK8LINE.TB_REVENUES(
     CD_STATUS           char(1)       not null,              --Status do pedido: A - Aberto, F - Finalizado
     CD_STATUS_DELIVERY  char(1)       not null,              --Status do pedido: P - Pendente, S - Separação, T - Em Transito, E - Entregue
     DT_REVENUES         date          not null,
-    DT_DELIVERY         date          not null,
+    DT_DELIVERY         date          ,
     VL_DISCOUNT         numeric(18,2) ,
     VL_TOTAL            numeric(18,2) not null
 );

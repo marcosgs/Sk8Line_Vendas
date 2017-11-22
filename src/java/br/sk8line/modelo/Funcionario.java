@@ -23,14 +23,14 @@ public class Funcionario implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMPLOYEE_SEQ")
     private Long id;
     
-    @Column(name="DC_EMPLOYEE")
+    @Column(name="DC_EMPLOYEE", nullable = false, length = 200)
     private String nome;
     
-    @Column(name="DT_HIRE")
+    @Column(name="DT_HIRE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataContratacao;
     
-    @Column(name="DT_BIRTH_DATE")
+    @Column(name="DT_BIRTH_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     

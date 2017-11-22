@@ -73,7 +73,5 @@ public class UsuarioMB {
         return "usuarioCad"; 
     }
     
-    public boolean validaAdmin(){
-        return usuario.getIndAdmin().equals('S');
-    }
+    
 }

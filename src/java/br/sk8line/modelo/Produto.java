@@ -31,10 +31,10 @@ public class Produto implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator= "PRODUCT_SEQ")
     private Long id;
     
-    @Column(name="DC_PRODUCT")
+    @Column(name="DC_PRODUCT", nullable = false, length = 200)
     private String nome;
     
-    @Column(name="NU_PRICE_SALE")
+    @Column(name="NU_PRICE_SALE", nullable = false, length = 18, precision = 2)
     private float preco; 
     
     @OneToOne
@@ -89,8 +89,12 @@ public class Produto implements Serializable {
         this.dataAtual = dataAtual;
     }
 
-    
-    
-    
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
     
 }

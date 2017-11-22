@@ -28,7 +28,6 @@ public class ClienteDAO {
     }
     
     public Cliente consultarPorId(Long id){
-        
         return em.find(Cliente.class, id);
     }
     

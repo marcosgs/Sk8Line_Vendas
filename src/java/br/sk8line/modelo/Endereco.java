@@ -5,8 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -16,23 +18,25 @@ import javax.persistence.SequenceGenerator;
 public class Endereco implements Serializable {
     
     @Id
-    @Column(name="CD_ADDRESS")
+    @Column(name="CD_ADDRESS", length = 18)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADDRESS_SEQ")
     private Long id;
     
-    @Column(name="DC_ADDRESS")
+    @Column(name="DC_ADDRESS", nullable = false, length = 200)
     private String descricao;
     
-    @Column(name="DC_DISTRICT")
+    @Column(name="DC_DISTRICT", nullable = false, length = 200)
     private String bairro;
     
-    @Column(name="IN_TYPE_ADDRESS", length = 1)
+    @Column(name="IN_TYPE_ADDRESS", nullable = true, length = 1)
     private String indTipoEndereco;
    
-    @ManyToOne
+    @ManyToOne(targetEntity = Cliente.class, optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name="CD_CLIENT")
     private Cliente cliente;
     
-    @ManyToOne
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "CD_CITY")
     private Cidade cidade;
 
     public Long getId() {
@@ -82,5 +86,6 @@ public class Endereco implements Serializable {
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
+    
     
 }

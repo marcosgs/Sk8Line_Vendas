@@ -9,8 +9,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.SequenceGenerator;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -58,8 +62,12 @@ public class Cliente implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date dataAtual;
     
-    @OneToOne(mappedBy = "Cliente", optional = true )
+    @OneToOne(mappedBy = "cliente", optional = true )
     private Usuario usuario;
+    
+    @OneToMany(mappedBy = "cliente")
+    @JoinColumn(name = "CD_CLIENT")
+    private List<Endereco> endereco;
     
     public Long getId() {
         return id;
@@ -124,7 +132,13 @@ public class Cliente implements Serializable{
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    
+
+    public List<Endereco> getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(List<Endereco> endereco) {
+        this.endereco = endereco;
+    }
     
 }

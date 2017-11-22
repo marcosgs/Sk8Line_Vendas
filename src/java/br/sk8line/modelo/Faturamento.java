@@ -23,7 +23,7 @@ import javax.persistence.SequenceGenerator;
 public class Faturamento implements Serializable{
     
     @Id
-    @Column(name = "CD_REVENUES", nullable = false, updatable = false)
+    @Column(name = "CD_REVENUES", nullable = false)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "REVENUES_SEQ" )
     private Long id;
     
@@ -35,13 +35,13 @@ public class Faturamento implements Serializable{
     @JoinColumn(name = "CD_CLIENT", nullable = false)
     private Cliente cliente;
     
-    @Column(name="CD_STATUS", length = 1)
+    @Column(name="CD_STATUS", nullable = false, length = 1)
     private String status;
     
-    @Column(name="CD_STATUS_DELIVERY", length = 1)
+    @Column(name="CD_STATUS_DELIVERY", nullable = false, length = 1)
     private String statusEntrega;
     
-    @Column(name="DT_REVENUES")
+    @Column(name="DT_REVENUES", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataFaturamento;
     
@@ -52,7 +52,7 @@ public class Faturamento implements Serializable{
     @Column(name="VL_DISCOUNT", nullable = false)
     private double valorDesconto;
     
-    @Column(name="VL_TOTAL")
+    @Column(name="VL_TOTAL", nullable = false, length = 18, precision = 2)
     private double valorTotal;
 
     @OneToMany
@@ -129,6 +129,14 @@ public class Faturamento implements Serializable{
 
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public List<FaturamentoItem> getItens() {
+        return Itens;
+    }
+
+    public void setItens(List<FaturamentoItem> Itens) {
+        this.Itens = Itens;
     }
     
     

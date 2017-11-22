@@ -1,24 +1,20 @@
 package br.sk8line.dao;
 
-import br.sk8line.EM.EntityManagerUtil;
 import br.sk8line.modelo.Usuario;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 public class UsuarioDAO {
     
-    private EntityManager em;
+    private EntityManager em = null;
     
     public UsuarioDAO(EntityManager em){
         this.em = em;
     }
     
     public Usuario salvar(Usuario u) throws Exception{
-        
         
         Date dataAtual = new Date();
         u.setDataAtual(dataAtual);
@@ -31,12 +27,11 @@ public class UsuarioDAO {
         }else{
             if(!em.contains(u)){
                 if(em.find(Usuario.class,u.getId())==null){
-                    throw new Exception("Usuário não encontrado!");
+                    throw new Exception("Falha ao persistir usuário!");
                 }
             }
             em.merge(u);
         }
-        
         return u;
     }
     

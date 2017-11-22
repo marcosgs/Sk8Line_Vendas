@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -58,11 +59,11 @@ public class Usuario implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date dataAtual;
     
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn (name="CD_CLIENT")
     private Cliente cliente;
     
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn (name="CD_EMPLOYEE")
     private Funcionario funcionario;
     
