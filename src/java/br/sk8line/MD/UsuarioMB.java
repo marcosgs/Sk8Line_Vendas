@@ -45,22 +45,24 @@ public class UsuarioMB {
         return usuarios;
     }
     
+    
     public String salvar() throws Exception{
         usuario = ejb.salvar(usuario);
-        return "usuarios";
+        return "listUsuarios";
     }
     
+    //Vai para a tela de Cadastro de Usuários
     public String irCadastroUsuarios(){
         return "cadusuario";
     }
     
     public String remover(Long id){
         ejb.remover(id);
-        return "usuarios";
+        return "listUsuarios";
     }
     
     public String cancelarCad(){
-        return "usuarios";
+        return "listUsuarios";
     }
     
 }

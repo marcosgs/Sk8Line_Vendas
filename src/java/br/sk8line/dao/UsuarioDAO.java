@@ -4,11 +4,28 @@ import br.sk8line.modelo.Usuario;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 public class UsuarioDAO {
     
+    private EntityManagerFactory emf;
+    
     private EntityManager em;
+    
+    private EntityManager getEm() {
+        try {
+            emf= Persistence.createEntityManagerFactory("Sk8Line_VendasPU");
+            
+            em = emf.createEntityManager();
+        }finally {
+            emf.close();
+        }
+        
+        return em;
+    }
+    
     
     public UsuarioDAO(EntityManager em){
         this.em=em;
