@@ -24,7 +24,7 @@
         <ui:include src="header.xhtml"/>
         <div class="container-fluid">
             <div class="row">
-                <h1 class="titulo-principal"> Usuários </h1>
+                <h1 class="titulo-principal"> <b>Usuários</b></h1>
             </div>
             <div >
                 <h:form>
@@ -32,6 +32,7 @@
                     <h:commandButton id="novo"  class="btn btn-default btn-success " value="Novo" action="#{usuarioMB.irCadastroUsuarios()}"/>
                 </h:form>
             </div>
+            <br/>
             <div class="form-group">
                 <h:form>
                     <h:dataTable  value="#{usuarioMB.usuarios}" var="usuario"  styleClass="table" class="table table-list table-striped table-bordered table-list">
@@ -51,7 +52,7 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">Administrador</f:facet>
-                            <h:outputText value="#{usuario.indAdmin.replace("S", "Sim", "N", "Não")}"/>
+                            <h:outputText value="#{usuario.indAdmin}"/>
                         </h:column>
                         <h:column >
                             <h:commandButton value="Excluir" actionListener="#{usuarioMB.remover(usuario.id)}" styleClass="btn btn-danger"/>

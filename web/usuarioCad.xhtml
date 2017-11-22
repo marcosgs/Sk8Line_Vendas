@@ -33,7 +33,7 @@
                     <p:panelGrid id ="cadastro_usuario" columns="2">
 
                         <h:outputText value=""/>
-                        <h:inputHidden  id="nome" value="#{usuarioMB.usuario.id}" />
+                        <h:inputHidden  id="id" value="#{usuarioMB.usuario.id}" />
 
                         <h:outputText value="Nome Completo: "/>
                         <h:inputText id="nome" value="#{usuarioMB.usuario.nome}" />
@@ -45,7 +45,7 @@
                         <h:inputSecret id="senha" value="#{usuarioMB.usuario.senha}"/>
 
                         <h:outputText value="Administrador: " />
-                        <h:selectOneMenu id="perfil" value="#{usuarioMB.usuario.indTipo}">
+                        <h:selectOneMenu id="perfil" value="#{usuarioMB.usuario.indAdmin}">
                             <f:selectItem itemLabel="Sim" itemValue="S"/>
                             <f:selectItem itemLabel="Não" itemValue="N"/>
                         </h:selectOneMenu> 

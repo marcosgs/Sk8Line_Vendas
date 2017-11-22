@@ -19,11 +19,11 @@ public class UsuarioMB {
     
     private List<Usuario> usuarios;
     
-//    //Método para preencher dataTable
-//    @PostConstruct
-//    public void init() {
-//        usuarios = consultarTodos();
-//    }
+    //Método para preencher dataTable
+    @PostConstruct
+    public void init() {
+        usuarios = consultarTodos();
+    }
     
     private void setUsuario(Usuario usuario){
         this.usuario = usuario;

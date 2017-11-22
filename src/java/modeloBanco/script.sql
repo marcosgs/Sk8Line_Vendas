@@ -9,7 +9,7 @@ create table SK8LINE.TB_USERS(
     DC_NAME_USER  varchar2(200) not null,      --Login do usuário
     DC_PASSWORD   varchar2(500) not null,      --Senha do Usuário Criptografada
     DC_NAME       varchar(200) not null,       -- Nome completo do usuário
-    IN_ADMIN      CHAR(1) not null,            --Indicador se administrador
+    IN_ADMIN      char(1) not null,            --Indicador se administrador
     CD_CLIENT     numeric(18),                 --FK com tabela Cliente(Código do Cliente)
     CD_EMPLOYEE   numeric(18),
     DT_CREATE     date not null,               --Data de criação do registro
@@ -148,5 +148,3 @@ alter table SK8LINE.TB_ORDER add constraint FK_ORDER_CLIENT foreign key (CD_CLIE
 alter table SK8LINE.TB_ORDER_ITEM add constraint FK_ORDER_ITEM_PRODUCT foreign key (CD_PRODUCT) references SK8LINE.TB_PRODUCTS(CD_PRODUCT);
 
 alter table SK8LINE.TB_ORDER_ITEM add constraint FK_ORDER_ITEM_ORDER foreign key (CD_ORDER) references SK8LINE.TB_ORDER(CD_ORDER);
-
-

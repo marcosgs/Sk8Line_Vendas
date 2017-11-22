@@ -54,5 +54,6 @@ form[role=login] > div {
 
 .titulo-principal{
     text-align: center;
+    text-transform: uppercase;
     
 }

@@ -59,6 +59,10 @@ public class loginMB {
     }
     
     public boolean validaAdmin(){
-        return usuarioLogado.getIndAdmin().equals('S');
+        if (usuarioLogado.getIndAdmin().equals('S')){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

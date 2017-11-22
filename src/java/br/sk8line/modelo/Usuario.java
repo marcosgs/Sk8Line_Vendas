@@ -21,7 +21,7 @@ import org.jboss.weld.bean.AbstractBean;
 @NamedQueries({
   @NamedQuery(name = "Usuario.consultarTodos",
               query= "SELECT u FROM Usuario u" +
-                      " WHERE u.nome <> 'admin'"),
+                      " WHERE u.login <> 'admin'"),
     
   @NamedQuery(name = "Usuario.login",
               query = " SELECT u " +
