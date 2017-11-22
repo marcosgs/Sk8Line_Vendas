@@ -1,8 +1,8 @@
 @CHARSET "UTF-8";
 
 * {
-    /*-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;*/
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     outline: none;
 }
@@ -16,9 +16,9 @@
 
 body {
     background-color: rgb(240,255,240);
-    /*-webkit-background-size: cover;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
-    -o-background-size: cover;*/
+    -o-background-size: cover;
     background-size: cover;
     font-family: "Crimson Text", "Times New Roman", serif;
 }
@@ -51,7 +51,8 @@ form[role=login] button {
 form[role=login] > div {
     text-align: center;
 }
-	
-.message{
-    color: red;
+
+.titulo-principal{
+    text-align: center;
+    
 }

@@ -102,16 +102,17 @@ create table SK8LINE.TB_ORDER(
 create sequence  SK8LINE.ORDER_SEQ  increment by 1 start with 1 nocache nocycle;
 
 create table SK8LINE.TB_ORDER_ITEM(
-    CD_ORDER_ITEM    numeric(18) not null primary key,  --Código
-    CD_PRODUCT       numeric(18) not null, 
-    NU_QUANTITY      numeric(18) not null,
-    VL_UNIT          numeric(18,2) not null
+    CD_ORDER_ITEM  numeric(18) not null primary key,  --Código
+	CD_ORDER       numeric(18) not null, 
+    CD_PRODUCT     numeric(18) not null, 
+    NU_QUANTITY    numeric(18) not null,
+    VL_UNIT        numeric(18,2) not null
 );
 
 create sequence  SK8LINE.ORDER_ITEM_SEQ  increment by 1 start with 1 nocache nocycle;
 
 create table SK8LINE.TB_REVENUES(
-    CD_BILLING          numeric(18)   not null primary key,  --Código
+    CD_REVENUES          numeric(18)   not null primary key,  --Código
     CD_ORDER            numeric(18)   not null,
     CD_CLIENT           numeric(18)   not null,
     CD_STATUS           char(1)       not null,              --Status do pedido: A - Aberto, F - Finalizado
@@ -144,6 +145,8 @@ alter table SK8LINE.TB_CITY add constraint FK_CITY_UF foreign key (CD_UF) refere
 
 alter table SK8LINE.TB_ORDER add constraint FK_ORDER_CLIENT foreign key (CD_CLIENT) references SK8LINE.TB_CLIENTS(CD_CLIENT);
 
-alter table SK8LINE.TB_ORDER_ITEM add constraint FK_ORDER_PRODUCT foreign key (CD_PRODUCT) references SK8LINE.TB_PRODUCTS(CD_PRODUCT);
+alter table SK8LINE.TB_ORDER_ITEM add constraint FK_ORDER_ITEM_PRODUCT foreign key (CD_PRODUCT) references SK8LINE.TB_PRODUCTS(CD_PRODUCT);
+
+alter table SK8LINE.TB_ORDER_ITEM add constraint FK_ORDER_ITEM_ORDER foreign key (CD_ORDER) references SK8LINE.TB_ORDER(CD_ORDER);
 
 

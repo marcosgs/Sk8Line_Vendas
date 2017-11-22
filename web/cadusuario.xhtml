@@ -32,7 +32,7 @@
                     <h:panelGrid id ="cadastro_usuario" columns="2">
 
 
-                        <h:outputText value="Nome: "/>
+                        <h:outputText value="Nome Completo: "/>
                         <h:inputText id="nome" value="#{usuarioMB.usuario.nome}" />
 
                         <h:outputText value="Login: "/>
@@ -43,11 +43,11 @@
 
                         <h:outputText value="Tipo de Usuário " />
                         <h:selectOneMenu id="perfil" value="#{usuarioMB.usuario.indTipo}">
-                            <f:selectItem itemLabel="A" itemValue="Administrador"/>
-                            <f:selectItem itemLabel="U" itemValue="Usuario"/>
+                            <f:selectItem itemLabel="Administrador" itemValue="A"/>
+                            <f:selectItem itemLabel="Usuario" itemValue="U"/>
                         </h:selectOneMenu> 
-                        <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-block" value="Salvar" action="#{usuarioMB.salvar()}"/>
-                        <h:commandButton id="cancelar" class="btn btn-lg btn-primary btn-block" value="Cancelar" action="#{usuarioMB.cancelar()}"/>
+                        <h:commandButton id="cadastrar" class="btn btn-lg btn-primary" value="Salvar" action="#{usuarioMB.salvar()}"/>
+                        <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{usuarioMB.cancelarCad()}"/>
                     </h:panelGrid>
                 </h:form>
             </div>

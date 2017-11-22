@@ -1,9 +1,6 @@
 package br.sk8line.modelo;
 
-/*
-    Verificar este exemplo https://www.devmedia.com.br/jsf-session-criando-um-modulo-de-login/30975
-
-*/
+/* Verificar este exemplo https://www.devmedia.com.br/jsf-session-criando-um-modulo-de-login/30975 */
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,7 +16,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.jboss.weld.bean.AbstractBean;
 import javax.persistence.OneToOne;
 
 @NamedQueries({
@@ -66,6 +62,10 @@ public class Usuario implements Serializable{
     @OneToOne
     @JoinColumn (name="CD_CLIENT")
     private Cliente cliente;
+    
+    @OneToOne
+    @JoinColumn (name="CD_EMPLOYEE")
+    private Funcionario funcionario;
     
     public Long getId() {
         return id;
@@ -129,6 +129,14 @@ public class Usuario implements Serializable{
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 }
 

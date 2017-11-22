@@ -5,7 +5,9 @@
  */
 package br.sk8line.modelo;
 
+import java.util.List;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
@@ -13,7 +15,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
 import javax.persistence.GenerationType;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 @Table(name="TB_UF")
@@ -30,6 +33,10 @@ public class UF implements Serializable {
     
     @Column(name="DC_UF", nullable =false, length = 200)
     private String descricao;
+    
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="CD_UF")
+    private List<Cidade> cidade;
 
     public Long getId() {
         return id;
@@ -54,6 +61,12 @@ public class UF implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
-    
+
+    public List<Cidade> getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(List<Cidade> cidade) {
+        this.cidade = cidade;
+    }   
 }
