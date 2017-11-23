@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
@@ -22,7 +24,7 @@ public class UsuarioMB {
     //Método para preencher dataTable ao iniciar
     @PostConstruct
     public void init() {
-        usuarios = consultarTodos();
+        consultarTodos();
     }
     
     private void setUsuario(Usuario usuario){
@@ -42,35 +44,33 @@ public class UsuarioMB {
     }
     
     //Consulta todos os usuários
-    public List<Usuario> consultarTodos(){
+    public void consultarTodos(){
         usuarios = ejb.consultarTodos();
-        return usuarios;
     }
     
     public String salvar() throws Exception{
-        usuario = ejb.salvar(usuario);
-        usuarios = consultarTodos();
+        
+        try{
+            usuario = ejb.salvar(usuario);
+            consultarTodos();
+
+        }catch(Exception e){
+            FacesMessage msg = new FacesMessage("Erro interno! Contate um administrador!");
+            FacesContext.getCurrentInstance().addMessage("validaCadastro",msg);
+            return null;
+        }
         return "usuarios";
+        
     }
     
     //Vai para a tela de Cadastro de Usuários
     public String irCadastro(){
-        limpaUsuario();
         return "usuarioCad";
-    }
-    
-    public void limpaUsuario(){
-        usuario.setId(null);
-        usuario.setNome(null);
-        usuario.setLogin(null);
-        usuario.setFuncionario(null);
-        usuario.setIndAdmin(null);
-        usuario.setSenha(null);
     }
     
     public String remover(Long id){
         ejb.remover(id);
-        usuarios = consultarTodos();
+        consultarTodos();
         return "usuarios";
     }
     
@@ -81,6 +81,14 @@ public class UsuarioMB {
     public String alterar(Long id){
         usuario = ejb.consultarPorId(id);        
         return "usuarioCad"; 
+    }
+    
+    public String tipoAdminDescricao(String indAdmin){
+        if (indAdmin.equals("S")){
+            return "Sim";
+        }else{
+            return "Não";
+        }
     }
     
 }

@@ -2,6 +2,7 @@
 package br.sk8line.dao;
 
 import br.sk8line.modelo.Cliente;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -16,7 +17,14 @@ public class ClienteDAO {
     }
     
     public Cliente salvar(Cliente c) throws Exception{
+        
+        Date dataAtual = new Date();
+        c.setDataAtual(dataAtual);
+        
         if(c.getId()==null){
+            //Atribui a data atual ao
+            c.setDataCriacao(dataAtual);
+            
             em.persist(c);
         }else{
             if(!em.contains(c)){

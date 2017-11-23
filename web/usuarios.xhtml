@@ -52,7 +52,7 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">Administrador</f:facet>
-                            <h:outputText value="#{usuario.indAdmin}"/>
+                            <h:outputText value="#{usuarioMB.tipoAdminDescricao(usuario.indAdmin)}"/>
                         </h:column>
                         <h:column >
                             <h:commandButton value="Excluir" actionListener="#{usuarioMB.remover(usuario.id)}" styleClass="btn btn-danger"/>

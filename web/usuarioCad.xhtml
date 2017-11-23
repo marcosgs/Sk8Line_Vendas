@@ -33,6 +33,11 @@
                 
                 <div class="row">
                     <h1 class="titulo-principal"> <b>Cadastro de Usuários</b></h1>
+                    
+                    <div id="message" class=" alert-danger text-danger">
+                        <h:message id="validaCadastro" for="validaCadastro" />
+                    </div>
+                    
                     <h:form class="form-cadastro">
                         <div class="form-group">
                             <h:outputText value=""/>
@@ -43,7 +48,7 @@
                                 <h:outputText value="Nome Completo: "/>
                             </div>
                             <div >
-                                <h:inputText id="nome" class="form-control input-lg" value="#{usuarioMB.usuario.nome}" />
+                                <h:inputText id="nome" class="form-control input-lg" onclick="#{usuarioMB.usuario.nome}" value="#{usuarioMB.usuario.nome}" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -51,7 +56,7 @@
                                 <h:outputText value="Login: "/>
                             </div>
                             <div>
-                                <h:inputText id="login" class="form-control input-lg" value="#{usuarioMB.usuario.login}"/>
+                                <h:inputText id="login" class="form-control input-lg" onblur="#{usuarioMB.usuario.login}" value="#{usuarioMB.usuario.login}"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -79,12 +84,12 @@
                             </div>
                             <div class="col-md-9 coluna-campo">
                                 <div class="btn-group">     
-                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{usuarioMB.salvar()}">
-                                        <f:ajax render="@form" resetValues="true"/>
+                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" actionListener="#{usuarioMB.salvar()}">
+
                                     </h:commandButton>
                                 </div>
                                 <div class="btn-group"> 
-                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{usuarioMB.cancelarCad()}">
+                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" actionListener="#{usuarioMB.cancelarCad()}">
                                         <f:ajax render="@form" resetValues="true"/>
                                     </h:commandButton>
                                 </div>
