@@ -33,6 +33,11 @@
                 
                 <div class="row">
                     <h1 class="titulo-principal"> <b>Cadastro de Clientes</b></h1>
+                    
+                    <div id="message" class=" alert-danger text-danger">
+                        <h:message id="validaCadastro" for="validaCadastro" />
+                    </div>
+                    
                     <h:form class="form-cadastro">
                         <div class="form-group">
                             <h:outputText value=""/>
@@ -51,7 +56,7 @@
                                 <h:outputText value="Tipo Pessoa: "/>
                             </div>
                             <div>
-                                <h:selectOneMenu id="perfil" class="form-control input-lg" value="#{clienteMB.cliente.tipoCliente}">
+                                <h:selectOneMenu id="perfil" class="form-control input-lg" required="#{clienteMB.tipoClienteDescricao(clienteMB.cliente.tipoCliente)}" onclick="#{clienteMB.tipoClienteDescricao(itemValue)}" value="#{clienteMB.cliente.tipoCliente}">
                                     <f:selectItem itemLabel="Física" itemValue="F"/>
                                     <f:selectItem itemLabel="Juridica" itemValue="J"/>
                                 </h:selectOneMenu> 
@@ -60,43 +65,35 @@
                         
                         <div class="form-group">
                             <div>
-                                <h:outputText value="#{clienteMB.tipoClienteDescricao}"/>
+                                <h:outputText value="#{clienteMB.tipoClienteDescricao(perfil)}"/>
                             </div>
                             <div>
-                                <h:inputText id="login" class="form-control input-lg" value="#{clienteMB.cliente.numeroCNPJCPF}"/>
+                                <h:inputText id="cpfCnpj" class="form-control input-lg" value="#{clienteMB.cliente.numeroCNPJCPF}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <div >
-                                <h:outputText value="Senha:"/>
+                                <h:outputText value="Data de Nascimento:"/>
                             </div>
                             <div >
-                                <h:inputSecret id="senha" class="form-control input-lg" value="#{clienteMB.cliente.dataNascimento}"/>
+                                <p:calendar id="dtNascimento" class="form-control input-lg" value="#{clienteMB.cliente.dataNascimento}"/>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div >
-                                <h:outputText value="Administrador: " />
-                            </div>
-                            <div >
-                                <h:selectOneMenu id="perfil" class="form-control input-lg" value="#{usuarioMB.usuario.indAdmin}">
-                                    <f:selectItem itemLabel="Sim" itemValue="S"/>
-                                    <f:selectItem itemLabel="Não" itemValue="N"/>
-                                </h:selectOneMenu> 
-                            </div>
-                        </div>
+                        
+                        
+                        
                         <div class="form-group"> 
                             <div class="col-md-3">
                                 <h:outputText value=""/>
                             </div>
                             <div class="col-md-9 coluna-campo">
                                 <div class="btn-group">     
-                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{usuarioMB.salvar()}">
+                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{clienteMB.salvar()}">
                                         <f:ajax render="@form" resetValues="true"/>
                                     </h:commandButton>
                                 </div>
                                 <div class="btn-group"> 
-                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{usuarioMB.cancelarCad()}">
+                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{clienteMB.cancelarCad()}">
                                         <f:ajax render="@form" resetValues="true"/>
                                     </h:commandButton>
                                 </div>

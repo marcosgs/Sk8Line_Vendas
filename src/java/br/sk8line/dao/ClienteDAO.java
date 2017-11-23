@@ -21,7 +21,7 @@ public class ClienteDAO {
         }else{
             if(!em.contains(c)){
                 if (em.find(Cliente.class, c.getId())==null){
-                    throw new Exception("Cliente não Encontrado");
+                    throw new Exception("Falha ao persistir cliente!");
                 }
             }
             em.merge(c);

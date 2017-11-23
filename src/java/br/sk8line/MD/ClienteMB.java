@@ -16,7 +16,7 @@ public class ClienteMB {
     private ClienteLocal ejb;
     
     private List<Cliente> clientes;
-
+    
     @PostConstruct
     public void init(){
         clientes = consultarTodos();
@@ -66,14 +66,14 @@ public class ClienteMB {
         return "clienteCad";
     }   
     
-    public String tipoClienteDescricao(){
-        if (cliente.getTipoCliente() =="F"){
+    public String tipoClienteDescricao( String tipoCliente) {
+        if (tipoCliente.equals("F")){
             return "CPF";
         }
-        if (cliente.getTipoCliente()=="J"){
+        if (tipoCliente.equals("J")){
             return "CNPJ";
         }else{
-            return null;
+            return "";
         }
     }
     

@@ -55,7 +55,17 @@ public class UsuarioMB {
     
     //Vai para a tela de Cadastro de Usuários
     public String irCadastro(){
+        limpaUsuario();
         return "usuarioCad";
+    }
+    
+    public void limpaUsuario(){
+        usuario.setId(null);
+        usuario.setNome(null);
+        usuario.setLogin(null);
+        usuario.setFuncionario(null);
+        usuario.setIndAdmin(null);
+        usuario.setSenha(null);
     }
     
     public String remover(Long id){

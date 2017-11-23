@@ -16,9 +16,9 @@
                             <p:menuitem value="Usuários" action="#{menuMB.acaoMnUsuario()}" update="messages" />
                             <p:menuitem value="Usuários" url="usuarios.xhtml" actionListener="#{menuMB.acaoMnUsuario()}" update="messages" rendered="false"/>
                             <p:separator />
-                            <p:menuitem value="Clientes"  actionListener="#{menuMB.acaoMnCliente()}"/>
-                            <p:menuitem value="Funcionários" url="#" actionListener="#{menuMB.acaoMnFuncionario()}"/>
-                            <p:menuitem value="Produtos" url="#" actionListener="#{menuMB.acaoMnProduto()}"/>
+                            <p:menuitem value="Clientes"  action="#{menuMB.acaoMnCliente()}"/>
+                            <p:menuitem value="Funcionários" action="#{menuMB.acaoMnFuncionario()}"/>
+                            <p:menuitem value="Produtos" action="#{menuMB.acaoMnProduto()}"/>
                         </p:submenu>
                         <f:facet name="options">
                             <p:inputText style="margin-right:10px" placeholder="Pesquisar"/>
