@@ -43,26 +43,23 @@ public class loginMB {
             if (this.login.equals(usuarioLogado.getLogin()) && this.senha.equals(usuarioLogado.getSenha())){
                 return "main";
             }else{
-                FacesMessage msg = new FacesMessage("Usuário ou senha não encontrado");
-                FacesContext.getCurrentInstance().addMessage("xxx",msg);
+                FacesMessage msg = new FacesMessage("Usuário e senha inválidos!");
+                FacesContext.getCurrentInstance().addMessage("validaLogin",msg);
             }
             System.out.println(usuarioLogado.getLogin() + usuarioLogado.getSenha());
         }catch(Exception e){
-            FacesMessage msg = new FacesMessage("Falha contate um administrador!");
-            FacesContext.getCurrentInstance().addMessage("xxx",msg);
+            FacesMessage msg = new FacesMessage("Erro interno! Contate um administrador!");
+            FacesContext.getCurrentInstance().addMessage("validaLogin",msg);
         }
         return "login";
     }
 
-    public void logout(){
+    public String  logout(){
         
+        return "login";
     }
     
     public boolean validaAdmin(){
-        if (usuarioLogado.getIndAdmin().equals('S')){
-            return true;
-        }else{
-            return false;
-        }
+        return usuarioLogado.getIndAdmin().equals('S');
     }
 }

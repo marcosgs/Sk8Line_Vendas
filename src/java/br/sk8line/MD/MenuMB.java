@@ -16,10 +16,10 @@ public class MenuMB {
     }
     
     public String acaoMnCliente(){
-        return "listClientes";
+        return "clientes";
     }
     public String acaoMnFuncionario(){
-        return "funcionários";
+        return "funcionarios";
     }
     public String acaoMnProduto(){
         return "produtos";

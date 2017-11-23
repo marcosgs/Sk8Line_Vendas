@@ -32,26 +32,38 @@
             <div class="col-md-6">
                 
                 <div class="row">
-                    <h1 class="titulo-principal"> <b>Cadastro de Usuários</b></h1>
+                    <h1 class="titulo-principal"> <b>Cadastro de Clientes</b></h1>
                     <h:form class="form-cadastro">
                         <div class="form-group">
                             <h:outputText value=""/>
-                            <h:inputHidden  id="id" value="#{usuarioMB.usuario.id}" />
+                            <h:inputHidden  id="id" value="#{clienteMB.cliente.id}" />
                         </div>
                         <div class="form-group">
                             <div >
                                 <h:outputText value="Nome Completo: "/>
                             </div>
                             <div >
-                                <h:inputText id="nome" class="form-control input-lg" value="#{usuarioMB.usuario.nome}" />
+                                <h:inputText id="nome" class="form-control input-lg" value="#{clienteMB.cliente.nome}" />
                             </div>
                         </div>
                         <div class="form-group">
                             <div>
-                                <h:outputText value="Login: "/>
+                                <h:outputText value="Tipo Pessoa: "/>
                             </div>
                             <div>
-                                <h:inputText id="login" class="form-control input-lg" value="#{usuarioMB.usuario.login}"/>
+                                <h:selectOneMenu id="perfil" class="form-control input-lg" value="#{clienteMB.cliente.tipoCliente}">
+                                    <f:selectItem itemLabel="Física" itemValue="F"/>
+                                    <f:selectItem itemLabel="Juridica" itemValue="J"/>
+                                </h:selectOneMenu> 
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div>
+                                <h:outputText value="#{clienteMB.tipoClienteDescricao}"/>
+                            </div>
+                            <div>
+                                <h:inputText id="login" class="form-control input-lg" value="#{clienteMB.cliente.numeroCNPJCPF}"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -59,7 +71,7 @@
                                 <h:outputText value="Senha:"/>
                             </div>
                             <div >
-                                <h:inputSecret id="senha" class="form-control input-lg" value="#{usuarioMB.usuario.senha}"/>
+                                <h:inputSecret id="senha" class="form-control input-lg" value="#{clienteMB.cliente.dataNascimento}"/>
                             </div>
                         </div>
                         <div class="form-group">

@@ -2,6 +2,7 @@ package br.sk8line.ejb;
 
 import br.sk8line.dao.ClienteDAO;
 import br.sk8line.modelo.Cliente;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,6 +29,12 @@ public class ClienteBean implements ClienteLocal{
     public void remover(Long id){
         ClienteDAO dao = new ClienteDAO(em);
         dao.remover(id);
+    }
+
+    @Override
+    public List<Cliente> consultarTodos() {
+        ClienteDAO dao = new ClienteDAO(em);
+        return dao.consultarTodos();
     }
     
 }

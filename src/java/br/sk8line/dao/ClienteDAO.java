@@ -2,7 +2,9 @@
 package br.sk8line.dao;
 
 import br.sk8line.modelo.Cliente;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 
 public class ClienteDAO {
@@ -36,5 +38,8 @@ public class ClienteDAO {
         em.remove(c);
     }
     
-    
+    public List<Cliente> consultarTodos(){
+        Query consulta = em.createNamedQuery("Cliente.consultarTodos");
+        return consulta.getResultList();
+    }
 }

@@ -32,8 +32,7 @@ form[role=login] {
     background: #FFF;
     padding: 26px;
     border-radius: 10px;
-    /*-moz-border-radius: 10px;
-    -webkit-border-radius: 10px;*/
+    
 }
 
 form[role=login] img {
@@ -54,6 +53,35 @@ form[role=login] > div {
 
 .titulo-principal{
     text-align: center;
-    text-transform: uppercase;
+    text-transform: uppercase;    
+}
+
+
+
+.form-cadastro{
+    margin-top: 15px;
     
+    padding: 26px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.form-cadastro input,
+.form-cadastro button,
+.form-cadastro output{
+    margin: 16px 0;
+}
+
+.form-cadastro button{
+    font-size: 18px;
+}
+
+.coluna-titulo{
+    float:left;
+    text-align: right;
+}
+
+.coluna-campo{
+    float:left;
 }

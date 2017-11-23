@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
@@ -19,7 +21,7 @@ public class UsuarioMB {
     
     private List<Usuario> usuarios;
     
-    //Método para preencher dataTable
+    //Método para preencher dataTable ao iniciar
     @PostConstruct
     public void init() {
         usuarios = consultarTodos();
@@ -49,11 +51,12 @@ public class UsuarioMB {
     
     public String salvar() throws Exception{
         usuario = ejb.salvar(usuario);
+        usuarios = consultarTodos();
         return "usuarios";
     }
     
     //Vai para a tela de Cadastro de Usuários
-    public String irCadastroUsuarios(){
+    public String irCadastro(){
         return "usuarioCad";
     }
     
@@ -68,10 +71,8 @@ public class UsuarioMB {
     }
     
     public String alterar(Long id){
-        
         usuario = ejb.consultarPorId(id);        
         return "usuarioCad"; 
     }
-    
     
 }

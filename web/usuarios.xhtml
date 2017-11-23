@@ -29,13 +29,13 @@
             <div >
                 <h:form>
                     <p:growl id="growl" life="2000" />
-                    <h:commandButton id="novo"  class="btn btn-default btn-success " value="Novo" action="#{usuarioMB.irCadastroUsuarios()}"/>
+                    <h:commandButton id="novo"  class="btn btn-default btn-success " value="Novo" action="#{usuarioMB.irCadastro()}"/>
                 </h:form>
             </div>
             <br/>
             <div class="form-group">
                 <h:form>
-                    <h:dataTable  value="#{usuarioMB.usuarios}" var="usuario"  styleClass="table" class="table table-list table-striped table-bordered table-list">
+                    <h:dataTable  value="#{usuarioMB.usuarios}" var="usuario"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
                         <h:column>
                             <f:facet name="header" >ID</f:facet>
                             <h:outputText  value="#{usuario.id}"/>
