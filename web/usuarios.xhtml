@@ -44,6 +44,7 @@
                             <h:outputText value="#{usuarioMB.tipoAdminDescricao(usuario.indAdmin)}"/>
                         </h:column>
                         <h:column >
+                            <f:facet name="header"><em class="fa fa-cog"></em></f:facet>
                             <h:commandButton value="Excluir" actionListener="#{usuarioMB.remover(usuario.id)}" styleClass="btn btn-danger"/>
                         </h:column>        
                     </h:dataTable>

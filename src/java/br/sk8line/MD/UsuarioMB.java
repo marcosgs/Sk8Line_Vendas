@@ -53,13 +53,14 @@ public class UsuarioMB {
         try{
             usuario = ejb.salvar(usuario);
             consultarTodos();
+            return "usuarios";
 
         }catch(Exception e){
             FacesMessage msg = new FacesMessage("Erro interno! Contate um administrador!");
             FacesContext.getCurrentInstance().addMessage("validaCadastro",msg);
             return null;
         }
-        return "usuarios";
+        
         
     }
     
