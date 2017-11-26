@@ -27,4 +27,12 @@ public class MenuMB {
     public String acaoMnCategoria(){
         return "categorias";
     }
+    
+    public String acaoMnPedidos(){
+        return "pedidos";
+    }
+    
+    public String acaoMnFaturamento(){
+        return "faturamento";
+    }
 }

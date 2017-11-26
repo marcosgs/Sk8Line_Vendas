@@ -21,16 +21,12 @@ public class EnderecoMB {
     
     private List<Endereco> enderecos;
     
-    @PostConstruct
-    public void init(){
-        
-    }
     
-    public Endereco getCliente() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setCliente(Endereco endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -42,11 +38,11 @@ public class EnderecoMB {
         this.ejb = ejb;
     }
 
-    public List<Endereco> getClientes() {
+    public List<Endereco> getEnderecos() {
         return enderecos;
     }
 
-    public void setClientes(List<Endereco> enderecos) {
+    public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
     
@@ -54,7 +50,7 @@ public class EnderecoMB {
         enderecos = ejb.consultarTodos();
     }
     
-    public void consultarPorCliente(Long clienteID){
+    public void consultaPorCliente(Long clienteID){
         enderecos = ejb.consultaPorCliente(clienteID);
     }
     
@@ -82,7 +78,7 @@ public class EnderecoMB {
     }
     
     public String cancelarCad(){
-        return "enderecos";
+        return "clienteCad";
     }
 
 }

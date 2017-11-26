@@ -38,11 +38,11 @@
                         
                         <h:column>
                             <f:facet name="header">Data de Nascimento</f:facet>
-                            <h:outputText value="#{func.dataNascimento}"/>                            
+                            <h:outputText value="#{utilMB.formataData(func.dataNascimento)}"/>                            
                         </h:column>
                         <h:column>
                             <f:facet name="header">Data de Início</f:facet>
-                            <h:outputText value="#{func.dataContratacao}"/>
+                            <h:outputText value="#{utilMB.formataData(func.dataContratacao)}"/>
                         </h:column>
                         <h:column >
                             <h:commandButton value="Excluir" actionListener="#{funcionarioMB.remover(func.id)}" styleClass="btn btn-danger"/>

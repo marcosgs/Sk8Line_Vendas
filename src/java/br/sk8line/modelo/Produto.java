@@ -38,14 +38,14 @@ public class Produto implements Serializable {
     private float preco; 
     
     @OneToOne
-    @JoinColumn (name="CD_CATEGORY")
+    @JoinColumn (name="CD_CATEGORY", nullable = false)
     private Categoria categoria;
     
-    @Column(name="DT_CREATE")
+    @Column(name="DT_CREATE", nullable=false)
     @Temporal(TemporalType.DATE)
     private Date dataCriacao;
     
-    @Column(name="DT_LAST_UPD")
+    @Column(name="DT_LAST_UPD", nullable=false)
     @Temporal(TemporalType.DATE)
     private Date dataAtual;
 

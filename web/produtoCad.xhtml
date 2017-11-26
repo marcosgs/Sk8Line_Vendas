@@ -41,7 +41,7 @@
                                 <h:outputText value="Preço de Venda "/>
                             </div>
                             <div >
-                                <h:inputText id="nome" class="form-control input-lg" value="#{produtoMB.produto.preco}" />
+                                <h:inputText id="preco" class="form-control input-lg" value="#{produtoMB.produto.preco}" />
                                 
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                                 <h:outputText value="Categoria: " />
                             </div>
                             <div >
-                                <p:selectOneMenu id="categoria" value="#{produtoMB.produto.categoria.descricao}" effect="fold" editable="true">
+                                <p:selectOneMenu id="categoria" value="#{produtoMB.produto.categoria.id}" effect="fold" editable="true">
                                     <f:selectItem itemLabel="Select One" itemValue="" />
                                     <f:selectItems value="#{categoriaMB.categorias}" />
                                 </p:selectOneMenu>
@@ -62,12 +62,12 @@
                             </div>
                             <div class="col-md-9 coluna-campo">
                                 <div class="btn-group">     
-                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{usuarioMB.salvar()}">
+                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{produtoMB.salvar()}">
 
                                     </h:commandButton>
                                 </div>
                                 <div class="btn-group"> 
-                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{usuarioMB.cancelarCad()}">
+                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary btn-toolbar" value="Cancelar" action="#{produtoMB.cancelarCad()}">
                                     </h:commandButton>
                                 </div>
                             </div>
