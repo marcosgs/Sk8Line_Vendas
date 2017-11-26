@@ -26,6 +26,7 @@ public class UsuarioBean implements UsuarioLocal{
         return dao.consultarPorID(id);
     }
     
+    @Override
     public List<Usuario> consultarTodos(){
         UsuarioDAO dao = new UsuarioDAO(em);
         return dao.consultarTodos();

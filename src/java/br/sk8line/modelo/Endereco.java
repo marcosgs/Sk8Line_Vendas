@@ -10,7 +10,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
+
+@NamedQueries({
+    @NamedQuery(name = "Endereco.consultarTodos",
+                query = "Select e from Endereco e"
+    ),
+    
+    @NamedQuery(name="Endereco.consultaPorCliente",
+                query = "select e from Endereco c " +
+                        " where e.cliente.id = :cliente"
+    )
+})
 
 @Entity
 @Table(name="TB_ADDRESS")

@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.jboss.weld.bean.AbstractBean;
 
 @NamedQueries({
     @NamedQuery(name="Cliente.consultarTodos",
@@ -140,4 +141,23 @@ public class Cliente implements Serializable{
         this.endereco = endereco;
     }
     
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+                 return true;
+        if (obj == null)
+                 return false;
+        if (getClass() != obj.getClass())
+                 return false;
+
+        return (obj instanceof AbstractBean) ? (this.getId() == null ? this == obj : this.getId().equals(((AbstractBean)obj).getId())):false;
+    }
 }

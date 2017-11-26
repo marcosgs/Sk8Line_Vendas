@@ -32,7 +32,7 @@ public class Produto implements Serializable {
     private Long id;
     
     @Column(name="DC_PRODUCT", nullable = false, length = 200)
-    private String nome;
+    private String descricao;
     
     @Column(name="NU_PRICE_SALE", nullable = false, length = 18, precision = 2)
     private float preco; 
@@ -57,12 +57,12 @@ public class Produto implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public float getPreco() {

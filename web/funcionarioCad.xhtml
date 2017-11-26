@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <ui:include src="head.xhtml"/>
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml"/>
+        
+        <div class="container-fluid">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                
+                <div class="row">
+                    <h1 class="titulo-principal"> <b>Cadastro de Funcionários</b></h1>
+                    
+                    <div id="message" class=" alert-danger text-danger">
+                        <h:message id="validaCadastro" for="validaCadastro" />
+                    </div>
+                    
+                    <h:form class="form-cadastro">
+                        <div class="form-group">
+                            <h:outputText value=""/>
+                            <h:inputHidden  id="id" value="#{funcionarioMB.funcionario.id}" />
+                        </div>
+                        <div class="form-group">
+                            <div >
+                                <h:outputText value="Nome Completo: "/>
+                            </div>
+                            <div >
+                                <h:inputText id="nome" class="form-control input-lg" value="#{funcionarioMB.funcionario.nome}" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div >
+                                <h:outputText value="Data de Início"/>
+                            </div>
+                            <div >
+                                <p:calendar id="dtInicio" class="form-control input-lg" value="#{funcionarioMB.funcionario.dataContratacao}"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div >
+                                <h:outputText value="Data de Nascimento:"/>
+                            </div>
+                            <div >
+                                <p:calendar id="dtNascimento" class="form-control input-lg" value="#{funcionarioMB.funcionario.dataNascimento}"/>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="form-group"> 
+                            <div class="col-md-3">
+                                <h:outputText value=""/>
+                            </div>
+                            <div class="col-md-9 coluna-campo">
+                                <div class="btn-group">     
+                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{funcionarioMB.salvar()}">
+                                        <f:ajax render="@form" resetValues="true"/>
+                                    </h:commandButton>
+                                </div>
+                                <div class="btn-group"> 
+                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{funcionarioMB.cancelarCad()}">
+                                        <f:ajax render="@form" resetValues="true"/>
+                                    </h:commandButton>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </h:body>
+</html>
+
+

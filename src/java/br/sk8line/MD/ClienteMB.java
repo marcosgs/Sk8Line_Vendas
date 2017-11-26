@@ -94,15 +94,22 @@ public class ClienteMB {
     }
     
     
-    public void tipoClienteDescricao( String tipoCliente) {
+    public String tipoClienteDescricao( String tipoCliente) {
         if (tipoCliente.equals("F")){
             this.tipoCliente = "CPF";
+            return "CPF";
         }
         if (tipoCliente.equals("J")){
             this.tipoCliente = "CNPJ";
-        }else{
-            this.tipoCliente = "CPF";
+            return "CNPJ";
         }
+        
+        return null;
+        
+    }
+    
+    public String cancelarCad(){
+        return "clientes";
     }
 
 }

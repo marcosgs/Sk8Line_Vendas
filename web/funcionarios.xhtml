@@ -13,12 +13,12 @@
         <ui:include src="header.xhtml"/>
         <div class="container-fluid">
             <div class="row">
-                <h1 class="titulo-principal"> Clientes </h1>
+                <h1 class="titulo-principal"> Funcionários </h1>
             </div>
             <div>
                 <h:form>
                     <p:growl id="growl" life="2000" />
-                    <h:commandButton id="novo"  class="btn btn-default btn-success" value="Novo" action="#{clienteMB.irCadastro()}"/>
+                    <h:commandButton id="novo"  class="btn btn-default btn-success" value="Novo" action="#{funcionarioMB.irCadastro()}"/>
                 </h:form>
             </div>
             <br/>
@@ -31,12 +31,21 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">Nome</f:facet>
-                            <h:commandLink action="#{funcionarioMB.alterar(cliente.id)}">
+                            <h:commandLink action="#{funcionarioMB.alterar(func.id)}">
                                 <h:outputText value="#{func.nome}"/>
                             </h:commandLink>
                         </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Data de Nascimento</f:facet>
+                            <h:outputText value="#{func.dataNascimento}"/>                            
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Data de Início</f:facet>
+                            <h:outputText value="#{func.dataContratacao}"/>
+                        </h:column>
                         <h:column >
-                            <h:commandButton value="Excluir" actionListener="#{clienteMB.remover(cliente.id)}" styleClass="btn btn-danger"/>
+                            <h:commandButton value="Excluir" actionListener="#{funcionarioMB.remover(func.id)}" styleClass="btn btn-danger"/>
                         </h:column>        
                     </h:dataTable>
                 </h:form>

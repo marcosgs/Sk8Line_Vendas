@@ -13,7 +13,7 @@
         <ui:include src="header.xhtml"/>
         <div class="container-fluid">
             <div class="row">
-                <h1 class="titulo-principal"> <b>Usuários</b></h1>
+                <h1 class="titulo-principal"> <b>Produtos</b></h1>
             </div>
             <div >
                 <h:form>
@@ -24,27 +24,25 @@
             <br/>
             <div class="form-group">
                 <h:form>
-                    <h:dataTable  value="#{usuarioMB.usuarios}" var="usuario"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
+                    <h:dataTable  value="#{produtoMB.produtos}" var="produto"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
                         <h:column>
                             <f:facet name="header" >ID</f:facet>
-                            <h:outputText  value="#{usuario.id}"/>
+                            <h:outputText  value="#{produto.id}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">Nome</f:facet>
-                            <h:commandLink action="#{usuarioMB.alterar(usuario.id)}">
-                                <h:outputText value="#{usuario.nome}"/>
+                            <h:commandLink action="#{produtoMB.alterar(produto.id)}">
+                                <h:outputText value="#{produto.nome}"/>
                             </h:commandLink>
                         </h:column>
+                        
                         <h:column>
-                            <f:facet name="header">login</f:facet>
-                            <h:outputText value="#{usuario.login}"/>
+                            <f:facet name="header">Categoria</f:facet>
+                            <h:outputText value="#{produto.categoria.descricao}"/>
                         </h:column>
-                        <h:column>
-                            <f:facet name="header">Administrador</f:facet>
-                            <h:outputText value="#{usuario.indAdmin}"/>
-                        </h:column>
+                        
                         <h:column >
-                            <h:commandButton value="Excluir" actionListener="#{usuarioMB.remover(usuario.id)}" styleClass="btn btn-danger"/>
+                            <h:commandButton value="Excluir" actionListener="#{produtoMB.remover(produto.id)}" styleClass="btn btn-danger"/>
                         </h:column>        
                     </h:dataTable>
                 </h:form>

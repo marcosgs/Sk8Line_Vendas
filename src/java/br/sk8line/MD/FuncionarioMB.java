@@ -24,11 +24,11 @@ public class FuncionarioMB {
         consultarTodos();
     }
     
-    public Funcionario getCliente() {
+    public Funcionario getFuncionario() {
         return funcionario;
     }
 
-    public void setCliente(Funcionario funcionario) {
+    public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
 
@@ -40,11 +40,11 @@ public class FuncionarioMB {
         this.ejb = ejb;
     }
 
-    public List<Funcionario> getClientes() {
+    public List<Funcionario> getFuncionarios() {
         return funcionarios;
     }
 
-    public void setClientes(List<Funcionario> funcionarios) {
+    public void setFuncionarios(List<Funcionario> funcionarios) {
         this.funcionarios = funcionarios;
     }
     
