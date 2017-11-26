@@ -25,13 +25,13 @@
                         </p:submenu>
                         
                         <p:submenu  label="Vendas">
-                            <p:menuitem value="Pedidos" action="" update="messages" />
+                            <p:menuitem value="Pedidos" action="#{menuMB.acaoMnPedidos()}" update="messages" />
                             <p:separator />
-                            <p:menuitem value="Faturamento" action="" update="messages" />
+                            <p:menuitem value="Faturamento" action="#{menuMB.acaoMnFaturamento()}" update="messages" />
                         </p:submenu>
                         
                         <p:submenu  label="Relatórios">
-                            
+                            <p:menuitem value="Pedidos" action="#{menuMB.acaoMnRelPedidos()}" update="messages" />
                         </p:submenu>
                         
                         <f:facet name="options">
