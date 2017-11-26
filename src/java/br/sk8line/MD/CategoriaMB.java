@@ -3,12 +3,14 @@ package br.sk8line.MD;
 import java.util.List;
 import br.sk8line.ejb.CategoriaLocal;
 import br.sk8line.modelo.Categoria;
+import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 @ManagedBean
 @SessionScoped
@@ -20,6 +22,8 @@ public class CategoriaMB {
     private CategoriaLocal ejb;
     
     private List<Categoria> categorias;
+    
+    private List<SelectItem> listaCategoriasItem;
     
     @PostConstruct
     public void init(){
@@ -34,6 +38,18 @@ public class CategoriaMB {
         this.categoria = categoria;
     }
 
+    public List<SelectItem> listaCategoriasItem() {
+	List<SelectItem> lista = new ArrayList<SelectItem>();
+        consultarTodos();
+        for(Categoria categ : categorias){
+            SelectItem  s = new SelectItem();
+            s.setValue(categ.getId());
+            s.setLabel(categ.getDescricao());
+            lista.add(s);
+        }
+	return lista;
+    }
+    
     public CategoriaLocal getEjb() {
         return ejb;
     }
@@ -62,7 +78,8 @@ public class CategoriaMB {
             return "categorias";
 
         }catch(Exception e){
-            FacesMessage msg = new FacesMessage("Erro interno! Contate um administrador!");
+            //FacesMessage msg = new FacesMessage( "Erro interno! Contate um administrador!");
+            FacesMessage msg = new FacesMessage( FacesMessage.SEVERITY_ERROR, "Erro interno!" , " Contate um administrador!");
             FacesContext.getCurrentInstance().addMessage("validaCadastro",msg);
             return null;
         }

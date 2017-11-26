@@ -10,11 +10,9 @@
     </h:head>
     <h:body>
         <ui:include src="header.xhtml"/>
-        
         <div class="container-fluid">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                
                 <div class="row">
                     <h1 class="titulo-principal"> <b>Cadastro de Produtos</b></h1>
                     
@@ -50,10 +48,10 @@
                                 <h:outputText value="Categoria: " />
                             </div>
                             <div >
-                                <p:selectOneMenu id="categoria" effect="fold" editable="true">
-                                    <f:selectItem itemLabel="Select One" itemValue="" />
-                                    <f:selectItems value="#{categoriaMB.categorias}" />
-                                </p:selectOneMenu>
+                                <h:selectOneMenu id="categoria" value="#{produtoMB.produto.categoria}" class="form-control input-lg">
+                                    <f:selectItem itemLabel="" itemValue="" />
+                                    <f:selectItems value="#{categoriaMB.listaCategoriasItem()}" />
+                                </h:selectOneMenu>
                             </div>
                         </div>
                         <div class="form-group"> 
