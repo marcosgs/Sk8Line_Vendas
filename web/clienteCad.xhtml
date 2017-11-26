@@ -67,41 +67,6 @@
                             </div>
                         </div>
                         
-                        <div class="form-group">
-                            <div>
-                                <h:outputText value="Endereços"/>
-                            </div>
-                            <div>
-                                <h:dataTable  value="#{enderecoMB.enderecos}" var="endereco"  styleClass="table" class="table table-striped table-bordered table-list">
-                                    <h:column rendered="false">
-                                        <f:facet name="header" >Código</f:facet>
-                                        <h:outputText  value="#{endereco.id}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">Descrição</f:facet>
-                                        <h:commandLink action="#{enderecoMB.alterar(cliente.id)}">
-                                            <h:outputText value="#{endereco.nome}"/>
-                                        </h:commandLink>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">Bairro</f:facet>
-                                        <h:outputText value="#{endereco.bairro}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">Cidade</f:facet>
-                                        <h:outputText value="#{endereco}"/>
-                                    </h:column>
-                                    <h:column>
-                                        <f:facet name="header">Estado</f:facet>
-                                        <h:outputText value=""/>
-                                    </h:column>
-                                    <h:column >
-                                        <h:commandButton value="Excluir" actionListener="" styleClass="btn btn-danger"/>
-                                    </h:column>        
-                                </h:dataTable>
-                            </div>
-                        </div>
-                        
                         <div class="form-group"> 
                             <div class="col-md-3">
                                 <h:outputText value=""/>
@@ -115,6 +80,40 @@
                                     <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{clienteMB.cancelarCad()}">
                                     </h:commandButton>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <h2 class="titulo-principal"> <b>Endereços</b></h2>
+                            </div>
+                            <div>
+                                <h:dataTable  value="#{enderecoMB.enderecos}" var="endereco"  styleClass="table" class="table table-striped table-bordered table-list">
+                                    <h:column rendered="false">
+                                        <f:facet name="header" >Código</f:facet>
+                                        <h:outputText  value="#{endereco.id}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Descrição</f:facet>
+                                        <h:commandLink action="#{enderecoMB.alterar(cliente.id)}">
+                                            <h:outputText value="#{endereco.descricao}"/>
+                                        </h:commandLink>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Bairro</f:facet>
+                                        <h:outputText value="#{endereco.bairro}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Cidade</f:facet>
+                                        <h:outputText value="#{endereco.cidade.descricao}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Estado</f:facet>
+                                        <h:outputText value="#{endereco.cidade.uf.descricao}"/>
+                                    </h:column>
+                                    <h:column >
+                                        <h:commandButton value="Excluir" actionListener="#{clienteMB.excluirEndereco(endereco.id)}" styleClass="btn btn-danger"/>
+                                    </h:column>        
+                                </h:dataTable>
                             </div>
                         </div>
                     </h:form>

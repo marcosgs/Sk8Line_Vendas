@@ -21,7 +21,6 @@ public class EnderecoMB {
     
     private List<Endereco> enderecos;
     
-    
     public Endereco getEndereco() {
         return endereco;
     }

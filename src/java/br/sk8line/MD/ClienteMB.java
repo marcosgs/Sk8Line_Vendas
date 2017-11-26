@@ -90,9 +90,10 @@ public class ClienteMB {
     
     public String alterar(Long id){
         cliente = ejb.consultarPorId(id);        
+        EnderecoMB endereco = new EnderecoMB();
+        endereco.consultaPorCliente(id);
         return "clienteCad"; 
     }
-    
     
     public String tipoClienteDescricao( String tipoCliente) {
         if (tipoCliente.equals("F")){
@@ -103,9 +104,7 @@ public class ClienteMB {
             this.tipoCliente = "CNPJ";
             return "CNPJ";
         }
-        
-        return null;
-        
+        return null;    
     }
     
     public String cancelarCad(){

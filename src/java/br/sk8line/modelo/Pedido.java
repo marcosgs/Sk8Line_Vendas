@@ -9,10 +9,24 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+@NamedQueries({
+    @NamedQuery(name="Pedido.consultarTodos",
+            query="select p "+
+                  "from Pedido p"
+    ),
+    
+    @NamedQuery(name="Pedido.consultaPorStatus",
+                query = "select p from Pedido p " +
+                        " where p.status = :status"
+    )
+})
 
 @Entity
 @Table(name="TB_ORDER")

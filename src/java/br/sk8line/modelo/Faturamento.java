@@ -14,8 +14,23 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+
+@NamedQueries({
+    @NamedQuery(name="Faturamento.consultarTodos",
+            query="select f "+
+                  "from Faturamento f"
+    ),
+    
+    @NamedQuery(name="Faturamento.consultaPorStatus",
+                query = "select f from Faturamento f " +
+                        " where f.status = :status"
+    )
+})
+
 
 @Entity
 @Table(name="TB_REVENUES")

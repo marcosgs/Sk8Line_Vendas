@@ -94,7 +94,7 @@ create table SK8LINE.TB_ORDER(
     CD_ORDER       numeric(18)   not null primary key,  --Código do pedido
     DT_ORDER       date          not null,
     CD_CLIENT      numeric(18)   not null,
-    CD_STATUS      char(1)       not null,              --Status do pedido: A - Aberto, P - Pendente, F - Finalizado
+    CD_STATUS      char(1)       not null,              --Status do pedido: A - Aberto, P - Pendente, F - Faturado
     VL_DISCOUNT    numeric(18,2) ,
     VL_TOTAL       numeric(18,2) not null
 );
