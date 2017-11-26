@@ -7,7 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
+
+@NamedQueries({
+    @NamedQuery(name="Categoria.consultarTodos",
+            query="select c "+
+                  "from Categoria c"
+    )
+})
 
 @Entity
 @Table(name="TB_CATEGORY")

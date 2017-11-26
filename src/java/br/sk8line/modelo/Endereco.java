@@ -20,7 +20,7 @@ import javax.persistence.SequenceGenerator;
     ),
     
     @NamedQuery(name="Endereco.consultaPorCliente",
-                query = "select e from Endereco c " +
+                query = "select e from Endereco e " +
                         " where e.cliente.id = :cliente"
     )
 })

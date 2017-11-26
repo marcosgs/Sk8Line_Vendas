@@ -16,7 +16,7 @@
             <div class="col-md-6">
                 
                 <div class="row">
-                    <h1 class="titulo-principal"> <b>Cadastro de Funcionários</b></h1>
+                    <h1 class="titulo-principal"> <b>Cadastro de Categoria</b></h1>
                     
                     <div id="message" class=" alert-danger text-danger">
                         <h:message id="validaCadastro" for="validaCadastro" />
@@ -25,35 +25,16 @@
                     <h:form class="form-cadastro">
                         <div class="form-group">
                             <h:outputText value=""/>
-                            <h:inputHidden  id="id" value="#{funcionarioMB.funcionario.id}" />
+                            <h:inputHidden  id="id" value="#{categoriaMB.categoria.id}" />
                         </div>
                         <div class="form-group">
                             <div >
                                 <h:outputText value="Nome Completo: "/>
                             </div>
                             <div >
-                                <h:inputText id="nome" class="form-control input-lg" value="#{funcionarioMB.funcionario.nome}" />
+                                <h:inputText id="nome" class="form-control input-lg" value="#{categoriaMB.categoria.id}" />
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <div >
-                                <h:outputText value="Data de Início"/>
-                            </div>
-                            <div >
-                                <p:calendar id="dtInicio" class="form-control input-lg" value="#{funcionarioMB.funcionario.dataContratacao}"/>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div >
-                                <h:outputText value="Data de Nascimento:"/>
-                            </div>
-                            <div >
-                                <p:calendar id="dtNascimento" class="form-control input-lg" value="#{funcionarioMB.funcionario.dataNascimento}"/>
-                            </div>
-                        </div>
-                        
                         
                         
                         <div class="form-group"> 
@@ -62,11 +43,11 @@
                             </div>
                             <div class="col-md-9 coluna-campo">
                                 <div class="btn-group">     
-                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{funcionarioMB.salvar()}">
+                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{clienteMB.salvar()}">
                                     </h:commandButton>
                                 </div>
                                 <div class="btn-group"> 
-                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{funcionarioMB.cancelarCad()}">
+                                    <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{clienteMB.cancelarCad()}">
                                     </h:commandButton>
                                 </div>
                             </div>

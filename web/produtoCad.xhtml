@@ -32,23 +32,17 @@
                                 <h:outputText value="Descrição: "/>
                             </div>
                             <div >
-                                <h:inputText id="nome" class="form-control input-lg" onclick="#{produtoMB.produto.nome}" value="#{usuarioMB.usuario.nome}" />
+                                <h:inputText id="nome" class="form-control input-lg" value="#{produtoMB.produto.descricao}" />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div>
-                                <h:outputText value="Login: "/>
-                            </div>
-                            <div>
-                                <h:inputText id="login" class="form-control input-lg" onblur="#{usuarioMB.usuario.login}" value="#{usuarioMB.usuario.login}"/>
-                            </div>
-                        </div>
+                        
                         <div class="form-group">
                             <div >
-                                <h:outputText value="Senha:"/>
+                                <h:outputText value="Preço de Venda "/>
                             </div>
                             <div >
-                                <h:inputSecret id="senha" class="form-control input-lg" value="#{usuarioMB.usuario.senha}"/>
+                                <h:inputText id="nome" class="form-control input-lg" value="#{produtoMB.produto.preco}" />
+                                
                             </div>
                         </div>
                         <div class="form-group">
@@ -56,9 +50,9 @@
                                 <h:outputText value="Categoria: " />
                             </div>
                             <div >
-                                <p:selectOneMenu id="categoria" value="#{selectOneMenuView.city}" effect="fold" editable="true">
+                                <p:selectOneMenu id="categoria" value="#{produtoMB.produto.categoria.descricao}" effect="fold" editable="true">
                                     <f:selectItem itemLabel="Select One" itemValue="" />
-                                    <f:selectItems value="#{selectOneMenuView.cities}" />
+                                    <f:selectItems value="#{categoriaMB.categorias}" />
                                 </p:selectOneMenu>
                             </div>
                         </div>
@@ -74,7 +68,6 @@
                                 </div>
                                 <div class="btn-group"> 
                                     <h:commandButton id="cancelar" class="btn btn-lg btn-primary" value="Cancelar" action="#{usuarioMB.cancelarCad()}">
-                                        <f:ajax render="@form" resetValues="true"/>
                                     </h:commandButton>
                                 </div>
                             </div>

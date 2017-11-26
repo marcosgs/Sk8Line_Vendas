@@ -67,4 +67,8 @@ public class FuncionarioMB {
     public String irCadastro(){
         return "funcionarioCad";
     }   
+    
+    public String cancelarCad(){
+        return "funcionarios";
+    }
 }

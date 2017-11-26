@@ -21,7 +21,10 @@ public class MenuMB {
     public String acaoMnFuncionario(){
         return "funcionarios";
     }
-    public String acaoMnProduto(){
+    public String acaoMnProduto(){        
         return "produtos";
+    }
+    public String acaoMnCategoria(){
+        return "categorias";
     }
 }

@@ -17,8 +17,11 @@
                             <p:menuitem value="Usuários" url="usuarios.xhtml" actionListener="#{menuMB.acaoMnUsuario()}" update="messages" rendered="false"/>
                             <p:separator />
                             <p:menuitem value="Clientes"  action="#{menuMB.acaoMnCliente()}"/>
+                            <p:separator />
                             <p:menuitem value="Funcionários" action="#{menuMB.acaoMnFuncionario()}"/>
+                            <p:separator />
                             <p:menuitem value="Produtos" action="#{menuMB.acaoMnProduto()}"/>
+                            <p:menuitem value="Categorias" action="#{menuMB.acaoMnCategoria()}"/>
                         </p:submenu>
                         <f:facet name="options">
                             <p:inputText style="margin-right:10px" placeholder="Pesquisar"/>
