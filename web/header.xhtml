@@ -23,6 +23,17 @@
                             <p:menuitem value="Produtos" action="#{menuMB.acaoMnProduto()}"/>
                             <p:menuitem value="Categorias" action="#{menuMB.acaoMnCategoria()}"/>
                         </p:submenu>
+                        
+                        <p:submenu  label="Vendas">
+                            <p:menuitem value="Pedidos" action="" update="messages" />
+                            <p:separator />
+                            <p:menuitem value="Faturamento" action="" update="messages" />
+                        </p:submenu>
+                        
+                        <p:submenu  label="Relatórios">
+                            
+                        </p:submenu>
+                        
                         <f:facet name="options">
                             <p:inputText style="margin-right:10px" placeholder="Pesquisar"/>
                             <p:commandButton type="button" value="Logout" action="#{loginMB.logout()}" icon="ui-icon-extlink" />
