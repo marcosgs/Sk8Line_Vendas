@@ -1,7 +1,9 @@
 package br.sk8line.dao;
 
 import br.sk8line.modelo.Funcionario;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 public class FuncionarioDAO {
     
@@ -32,5 +34,10 @@ public class FuncionarioDAO {
     public void remover(Long id){
         Funcionario f = consultarPorId(id);
         em.remove(f);
+    }
+    
+    public List<Funcionario> consultarTodos(){
+        Query consulta = em.createNamedQuery("Funcionario.consultarTodos");
+        return consulta.getResultList();
     }
 }

@@ -2,6 +2,7 @@ package br.sk8line.ejb;
 
 import br.sk8line.dao.FuncionarioDAO;
 import br.sk8line.modelo.Funcionario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,11 @@ public class FuncionarioBean implements FuncionarioLocal{
     public void remover(Long id){
         FuncionarioDAO dao = new FuncionarioDAO(em);
         dao.remover(id);
+    }
+
+    @Override
+    public List<Funcionario>  consultarTodos() {
+        FuncionarioDAO dao = new FuncionarioDAO(em);
+        return dao.consultarTodos();
     }
 }
