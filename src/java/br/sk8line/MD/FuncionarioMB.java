@@ -82,4 +82,10 @@ public class FuncionarioMB {
     public String cancelarCad(){
         return "funcionarios";
     }
+    
+    public String alterar(Long id){
+        funcionario = ejb.consultarPorId(id);        
+        
+        return "funcionarioCad"; 
+    }
 }

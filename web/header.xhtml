@@ -33,12 +33,10 @@
                         <p:submenu  label="Relatórios">
                             <p:menuitem value="Pedidos" action="#{menuMB.acaoMnRelPedidos()}" update="messages" />
                         </p:submenu>
-                        <p:menuitem value="Sair" action="#{loginMB.logout()}" />
+                        
                         <f:facet name="options">
                             <p:inputText style="margin-right:10px" placeholder="Pesquisar"/>
-                            <h:commandButton type="button" value="Logout" action="#{loginMB.logout()}" />
-                            
-                            
+                            <h:commandLink type="button" class="btn btn-default "  value="Sair" action="#{loginMB.logout()}" />
                         </f:facet>
                     </p:menubar>
                 </h:form>            
