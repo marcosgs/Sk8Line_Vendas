@@ -13,7 +13,7 @@
         <ui:include src="header.xhtml"/>
         <div class="container-fluid">
             <div class="row">
-                <h1 class="titulo-principal"> <b>Pedido</b></h1>
+                <h1 class="titulo-principal"> <b>Pedidos</b></h1>
             </div>
             <div >
                 <h:form>
@@ -24,10 +24,9 @@
             <br/>
             
             <div id="message" class=" alert-danger text-danger">
-                <h:message id="validaCadastro" for="validaPedido" />
+                <h:message id="validaPedido" for="validaPedido" />
             </div>
             <div class="form-group">
-                
                 <h:form>
                     <h:dataTable  value="#{pedidoMB.pedidos}" var="pedido"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
                         <h:column>

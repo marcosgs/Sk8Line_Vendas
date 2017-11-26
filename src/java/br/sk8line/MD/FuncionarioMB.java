@@ -5,8 +5,10 @@ import br.sk8line.ejb.FuncionarioLocal;
 import br.sk8line.modelo.Funcionario;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
@@ -53,9 +55,18 @@ public class FuncionarioMB {
     }
     
     public String salvar() throws Exception{
-        funcionario = ejb.salvar(funcionario);
-        consultarTodos();
-        return "funcionarioCad";
+        
+        
+        try{
+            funcionario = ejb.salvar(funcionario);
+            consultarTodos();
+            return "funcionarioCad";
+
+        }catch(Exception e){
+            FacesMessage msg = new FacesMessage("Erro interno! Contate um administrador!");
+            FacesContext.getCurrentInstance().addMessage("validaFuncionario",msg);
+            return null;
+        }
     }
     
     public String remover(Long id){

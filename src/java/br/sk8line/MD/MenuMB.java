@@ -35,4 +35,9 @@ public class MenuMB {
     public String acaoMnFaturamento(){
         return "faturamento";
     }
+    
+    public String acaoMnRelPedidos(){
+        return "relPedidos";
+    }
+    
 }

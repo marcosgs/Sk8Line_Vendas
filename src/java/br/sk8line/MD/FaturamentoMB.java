@@ -23,7 +23,6 @@ public class FaturamentoMB {
     
     private String statusDescricao;
     
-    //Método para preencher dataTable ao iniciar
     @PostConstruct
     public void init() {
         consultarTodos();
@@ -55,18 +54,18 @@ public class FaturamentoMB {
         try{
             faturamento = ejb.salvar(faturamento);
             consultarTodos();
-            return "pedidos";
+            return "faturamentos";
 
         }catch(Exception e){
             FacesMessage msg = new FacesMessage("Erro interno! Contate um administrador!");
-            FacesContext.getCurrentInstance().addMessage("validaCadastro",msg);
+            FacesContext.getCurrentInstance().addMessage("validaFaturamento",msg);
             return null;
         }
     }
     
     //Vai para a tela de Cadastro de Usuários
     public String irCadastro(){
-        return "pedidoCad";
+        return "faturamentoCad";
     }
     
     public String cancelarCad(){

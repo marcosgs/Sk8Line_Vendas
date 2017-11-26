@@ -13,53 +13,57 @@
         <ui:include src="header.xhtml"/>
         <div class="container-fluid">
             <div class="row">
-                <h1 class="titulo-principal"> <b>Faturamento</b></h1>
+                <h1 class="titulo-principal"> <b>Pedido</b></h1>
             </div>
             <div >
                 <h:form>
                     <p:growl id="growl" life="2000" />
-                    <h:commandButton id="novo"  class="btn btn-default btn-success " value="Novo" action="#{faturamentoMB.irCadastro()}"/>
+                    <h:outputText value="Cliente"/>
+                    <h:inputText id="nomeCliente" value=""/>
+                    <h:outputText value="    "/>
+                    <h:outputText value="Status: " />
+                    <h:selectOneMenu id="perfil" value="">
+                        <f:selectItem itemLabel="Aberto" itemValue="A"/>
+                        <f:selectItem itemLabel="Pendente" itemValue="P"/>
+                        <f:selectItem itemLabel="Faturado" itemValue="F"/>
+                    </h:selectOneMenu> 
+                    <h:outputText value="    "/>
+                    <h:commandButton id="pesquisar"  class="btn btn-default " value="Novo" action="#{pedidoMB.pesquisar()}"/>
                 </h:form>
             </div>
             <br/>
             
             <div id="message" class=" alert-danger text-danger">
-                <h:message id="validaFaturamento" for="validaFaturamento" />
+                <h:message id="validaPedido" for="validaPedido" />
             </div>
             <div class="form-group">
                 
                 <h:form>
-                    <h:dataTable  value="#{faturamentoMB.faturamentos}" var="faturamento"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
+                    <h:dataTable  value="#{pedidoMB.pedidos}" var="pedido"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
                         <h:column>
                             <f:facet name="header" >Código</f:facet>
-                            <h:commandLink action="#{faturamentoMB.alterar(faturamento.id)}">
-                                <h:outputText  value="#{faturamento.id}"/>
+                            <h:commandLink action="#{pedidoMB.alterar(pedido.id)}">
+                                <h:outputText  value="#{pedido.id}"/>
                             </h:commandLink>
                         </h:column>
                         <h:column>
-                            <f:facet name="header">Pedido</f:facet>
-                            <h:outputText value="#{faturamento.pedido.id}"/>
-                        </h:column>
-                        <h:column>
                             <f:facet name="header">Data Emissão</f:facet>
-                            <h:outputText value="#{faturamento.dataFaturamento}"/>
+                            <h:outputText value="#{pedido.dataPedido}"/>
                         </h:column>
                         
                         <h:column>
                             <f:facet name="header">Cliente</f:facet>
-                            <h:outputText value="#{faturamento.cliente.nome}"/>
+                            <h:outputText value="#{pedido.cliente.nome}"/>
                         </h:column>
                         
                         <h:column>
-                            <f:facet name="header">Status Faturamento</f:facet>
-                            <h:outputText value="#{faturamento.status}"/>
+                            <f:facet name="header">Status</f:facet>
+                            <h:outputText value="#{pedido.cliente.nome}"/>
                         </h:column>
                         
-                        <h:column>
-                            <f:facet name="header">Status Entrega</f:facet>
-                            <h:outputText value="#{faturamento.statusEntrega}"/>
-                        </h:column>
-                                
+                        <h:column >
+                            <h:commandButton value="Excluir" actionListener="#{pedidoMB.remover(pedido.id)}" styleClass="btn btn-danger"/>
+                        </h:column>        
                     </h:dataTable>
                 </h:form>
             </div>
