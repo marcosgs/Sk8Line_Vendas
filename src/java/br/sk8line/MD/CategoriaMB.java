@@ -3,6 +3,7 @@ package br.sk8line.MD;
 import java.util.List;
 import br.sk8line.ejb.CategoriaLocal;
 import br.sk8line.modelo.Categoria;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -14,7 +15,7 @@ import javax.faces.model.SelectItem;
 
 @ManagedBean
 @SessionScoped
-public class CategoriaMB {
+public class CategoriaMB implements Serializable{
     
     private Categoria categoria = new Categoria();
     

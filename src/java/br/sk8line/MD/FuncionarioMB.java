@@ -55,13 +55,10 @@ public class FuncionarioMB {
     }
     
     public String salvar() throws Exception{
-        
-        
         try{
             funcionario = ejb.salvar(funcionario);
             consultarTodos();
-            return "funcionarioCad";
-
+            return "funcionarios";
         }catch(Exception e){
             FacesMessage msg = new FacesMessage("Erro interno! Contate um administrador!");
             FacesContext.getCurrentInstance().addMessage("validaFuncionario",msg);

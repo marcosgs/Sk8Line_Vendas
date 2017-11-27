@@ -3,6 +3,7 @@ package br.sk8line.MD;
 import java.util.List;
 import br.sk8line.ejb.ClienteLocal;
 import br.sk8line.modelo.Cliente;
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -12,7 +13,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class ClienteMB {
+public class ClienteMB implements Serializable{
     
     private Cliente cliente = new Cliente();
     

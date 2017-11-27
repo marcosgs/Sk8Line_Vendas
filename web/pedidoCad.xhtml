@@ -16,7 +16,7 @@
             <div class="col-md-6">
                 
                 <div class="row">
-                    <h1 class="titulo-principal"> <b>Cadastro de Clientes</b></h1>
+                    <h1 class="titulo-principal"> <b>Cadastro de Pedido</b></h1>
                     
                     <div id="message" class=" alert-danger text-danger">
                         <h:message id="validaCadastro" for="validaCadastro" />
@@ -25,14 +25,15 @@
                     <h:form class="form-cadastro">
                         <div class="form-group">
                             <h:outputText value=""/>
-                            <h:inputHidden  id="id" value="#{clienteMB.cliente.id}" />
+                            <h:inputHidden  id="id" value="#{pedidoMB.pedido.id}" />
                         </div>
                         <div class="form-group">
                             <div >
-                                <h:outputText value="Nome Completo: "/>
+                                <h:outputText class="text-success" value="Cliente: "/>
                             </div>
                             <div >
                                 <h:inputText id="nome" class="form-control input-lg" value="#{clienteMB.cliente.nome}" />
+                                
                             </div>
                         </div>
                         <div class="form-group">

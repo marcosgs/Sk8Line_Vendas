@@ -85,3 +85,7 @@ form[role=login] > div {
 .coluna-campo{
     float:left;
 }
+
+.botao-endereco{
+    float:right;
+}

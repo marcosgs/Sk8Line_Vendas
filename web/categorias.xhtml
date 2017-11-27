@@ -24,21 +24,21 @@
             <br/>
             <div class="form-group">
                 <h:form>
-                    <h:dataTable  value="#{categoriaMB.categorias}" var="categoria"  styleClass="table" class="table table-striped table-bordered table-list">
-                        <h:column >
-                            <f:facet name="header" >Código</f:facet>
-                            <h:outputText  value="#{categoria.id}"/>
-                        </h:column>
-                        <h:column>
+                    <p:dataTable  value="#{categoriaMB.categorias}" var="categoria"  class="table table-striped table-bordered table-list">
+                        <p:column sortBy="#{categoria.id}">
+                            <f:facet name="header" class="text-center text-uppercase" >Código</f:facet>
+                            <h:outputText class="text-center" value="#{categoria.id}"/>
+                        </p:column>
+                        <p:column sortBy="#{categoria.descricao}">
                             <f:facet name="header">Descrição</f:facet>
-                            <h:commandLink action="#{categoriaMB.alterar(categoria.id)}">
-                                <h:outputText value="#{categoria.descricao}"/>
-                            </h:commandLink>
-                        </h:column>
-                        <h:column >
-                            <h:commandButton value="Excluir" actionListener="#{categoriaMB.remover(categoria.id)}" styleClass="btn btn-danger"/>
-                        </h:column>        
-                    </h:dataTable>
+                            <p:commandLink action="#{categoriaMB.alterar(categoria.id)}">
+                                <h:outputText class="text-center" value="#{categoria.descricao}"/>
+                            </p:commandLink>
+                        </p:column>
+                        <p:column >
+                            <h:commandButton class="text-center" value="Excluir" actionListener="#{categoriaMB.remover(categoria.id)}" styleClass="btn btn-danger"/>
+                        </p:column>        
+                    </p:dataTable>
                 </h:form>
             </div>
         </div>

@@ -63,7 +63,7 @@
                                 <h:outputText value="Data de Nascimento:"/>
                             </div>
                             <div >
-                                <p:calendar id="dtNascimento" class="form-control input-lg" value="#{clienteMB.cliente.dataNascimento}"/>
+                                <p:calendar id="dtNascimento" locale="pt" class="form-control input-lg" value="#{clienteMB.cliente.dataNascimento}"/>
                             </div>
                         </div>
                         
@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-md-9 coluna-campo">
                                 <div class="btn-group">     
-                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary btn-toolbar " value="Salvar" action="#{clienteMB.salvar()}">
+                                    <h:commandButton id="cadastrar" class="btn btn-lg btn-primary " value="Salvar" action="#{clienteMB.salvar()}">
                                     </h:commandButton>
                                 </div>
                                 <div class="btn-group"> 
@@ -85,6 +85,9 @@
                         <div class="form-group">
                             <div>
                                 <h2 class="titulo-principal"> <b>Endereços</b></h2>
+                            </div>
+                            <div class="botao-endereco">
+                                <h:commandButton id="novo"  class="btn btn-default btn-success" value="Novo" action="#{enderecoMB.irCadastro(clienteMB.cliente.id)}"/>
                             </div>
                             <div>
                                 <h:dataTable  value="#{enderecoMB.enderecos}" var="endereco"  styleClass="table" class="table table-striped table-bordered table-list">

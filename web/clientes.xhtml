@@ -24,33 +24,33 @@
             <br/>
             <div class="form-group">
                 <h:form>
-                    <h:dataTable  value="#{clienteMB.clientes}" var="cliente"  styleClass="table" class="table table-striped table-bordered table-list">
-                        <h:column >
+                    <p:dataTable  value="#{clienteMB.clientes}" var="cliente"  styleClass="table" class="table table-striped table-bordered table-list">
+                        <p:column sortBy="#{cliente.id}">
                             <f:facet name="header" >Código</f:facet>
                             <h:outputText  value="#{cliente.id}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column sortBy="#{cliente.nome}">
                             <f:facet name="header">Nome</f:facet>
                             <h:commandLink action="#{clienteMB.alterar(cliente.id)}">
                                 <h:outputText value="#{cliente.nome}"/>
                             </h:commandLink>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column >
                             <f:facet name="header">Data Nascimento</f:facet>
                             <h:outputText value="#{utilMB.formataData( cliente.dataNascimento)}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column >
                             <f:facet name="header">Tipo Pessoa</f:facet>
                             <h:outputText value="#{clienteMB.tipoClienteDescricao(cliente.tipoCliente)}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">CPF/CNPJ</f:facet>
                             <h:outputText value="#{cliente.numeroCNPJCPF}"/>
-                        </h:column>
-                        <h:column >
+                        </p:column>
+                        <p:column >
                             <h:commandButton value="Excluir" actionListener="#{clienteMB.remover(cliente.id)}" styleClass="btn btn-danger"/>
                         </h:column>        
-                    </h:dataTable>
+                    </p:dataTable>
                 </h:form>
             </div>
         </div>

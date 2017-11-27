@@ -29,38 +29,38 @@
             <div class="form-group">
                 
                 <h:form>
-                    <h:dataTable  value="#{faturamentoMB.faturamentos}" var="faturamento"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
-                        <h:column>
+                    <p:dataTable  value="#{faturamentoMB.faturamentos}" var="faturamento"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
+                        <p:column>
                             <f:facet name="header" >Código</f:facet>
                             <h:commandLink action="#{faturamentoMB.alterar(faturamento.id)}">
                                 <h:outputText  value="#{faturamento.id}"/>
                             </h:commandLink>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">Pedido</f:facet>
                             <h:outputText value="#{faturamento.pedido.id}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">Data Emissão</f:facet>
                             <h:outputText value="#{faturamento.dataFaturamento}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">Cliente</f:facet>
                             <h:outputText value="#{faturamento.cliente.nome}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">Status Faturamento</f:facet>
                             <h:outputText value="#{faturamento.status}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">Status Entrega</f:facet>
                             <h:outputText value="#{faturamento.statusEntrega}"/>
-                        </h:column>
+                        </p:column>
                                 
-                    </h:dataTable>
+                    </p:dataTable>
                 </h:form>
             </div>
         </div>

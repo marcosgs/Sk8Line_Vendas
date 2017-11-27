@@ -67,7 +67,13 @@ public class EnderecoMB {
         }
     }
     
-    public String irCadastro(){
+    public String irCadastro(Long id){
+        if(id==null){
+            FacesMessage msg = new FacesMessage("É necessário Salvar o cliente");
+            FacesContext.getCurrentInstance().addMessage(null,msg);
+            return null;
+        }
+        
         return "enderecoCad";
     }   
     

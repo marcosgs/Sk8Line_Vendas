@@ -28,32 +28,32 @@
             </div>
             <div class="form-group">
                 <h:form>
-                    <h:dataTable  value="#{pedidoMB.pedidos}" var="pedido"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
-                        <h:column>
+                    <p:dataTable  value="#{pedidoMB.pedidos}" var="pedido"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
+                        <p:column>
                             <f:facet name="header" >Código</f:facet>
                             <h:commandLink action="#{pedidoMB.alterar(pedido.id)}">
                                 <h:outputText  value="#{pedido.id}"/>
                             </h:commandLink>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">Data Emissão</f:facet>
                             <h:outputText value="#{pedido.dataPedido}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">Cliente</f:facet>
                             <h:outputText value="#{pedido.cliente.nome}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">Status</f:facet>
                             <h:outputText value="#{pedido.cliente.nome}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column >
+                        <p:column >
                             <h:commandButton value="Excluir" actionListener="#{pedidoMB.remover(pedido.id)}" styleClass="btn btn-danger"/>
-                        </h:column>        
-                    </h:dataTable>
+                        </p:column>        
+                    </p:dataTable>
                 </h:form>
             </div>
         </div>

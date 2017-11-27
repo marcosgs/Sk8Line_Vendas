@@ -24,27 +24,27 @@
             <br/>
             <div class="form-group">
                 <h:form>
-                    <h:dataTable  value="#{produtoMB.produtos}" var="produto"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
-                        <h:column>
+                    <p:dataTable  value="#{produtoMB.produtos}" var="produto"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
+                        <p:column>
                             <f:facet name="header" >ID</f:facet>
                             <h:outputText  value="#{produto.id}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">Nome</f:facet>
                             <h:commandLink action="#{produtoMB.alterar(produto.id)}">
                                 <h:outputText value="#{produto.nome}"/>
                             </h:commandLink>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column>
+                        <p:column>
                             <f:facet name="header">Categoria</f:facet>
                             <h:outputText value="#{produto.categoria.descricao}"/>
-                        </h:column>
+                        </p:column>
                         
-                        <h:column >
+                        <p:column >
                             <h:commandButton value="Excluir" actionListener="#{produtoMB.remover(produto.id)}" styleClass="btn btn-danger"/>
-                        </h:column>        
-                    </h:dataTable>
+                        </p:column>        
+                    </p:dataTable>
                 </h:form>
             </div>
         </div>

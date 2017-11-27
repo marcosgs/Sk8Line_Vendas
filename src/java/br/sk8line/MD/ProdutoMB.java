@@ -3,6 +3,7 @@ package br.sk8line.MD;
 import java.util.List;
 import br.sk8line.ejb.ProdutoLocal;
 import br.sk8line.modelo.Produto;
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -12,7 +13,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @SessionScoped
-public class ProdutoMB {
+public class ProdutoMB implements Serializable{
     
     private Produto produto = new Produto();
     
