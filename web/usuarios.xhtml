@@ -25,11 +25,11 @@
             <div class="form-group">
                 <h:form>
                     <p:dataTable  value="#{usuarioMB.usuarios}" var="usuario"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
-                        <p:column>
+                        <p:column sortBy="#{usuario.id}">
                             <f:facet name="header" >Código</f:facet>
                             <h:outputText  value="#{usuario.id}"/>
                         </p:column>
-                        <p:column>
+                        <p:column sortBy="#{usuario.nome}">
                             <f:facet name="header">Nome</f:facet>
                             <h:commandLink action="#{usuarioMB.alterar(usuario.id)}">
                                 <h:outputText value="#{usuario.nome}"/>
@@ -45,7 +45,7 @@
                         </p:column>
                         <p:column >
                             <f:facet name="header"><em class="fa fa-cog"></em></f:facet>
-                            <h:commandButton value="Excluir" actionListener="#{usuarioMB.remover(usuario.id)}" styleClass="btn btn-danger"/>
+                            <h:commandButton value="Excluir" actionListener="#{usuarioMB.remover(usuario.id)}" styleClass="btn btn-danger center-block"/>
                         </p:column>        
                     </p:dataTable>
                 </h:form>

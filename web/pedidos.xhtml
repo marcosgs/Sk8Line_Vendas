@@ -28,32 +28,42 @@
             </div>
             <div class="form-group">
                 <h:form>
-                    <p:dataTable  value="#{pedidoMB.pedidos}" var="pedido"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
-                        <p:column>
+                    <h:dataTable  value="#{pedidoMB.pedidos}" var="pedido"  styleClass="table" class="table table-list table-striped table-bordered table-responsive">
+                        <h:column>
                             <f:facet name="header" >Código</f:facet>
                             <h:commandLink action="#{pedidoMB.alterar(pedido.id)}">
                                 <h:outputText  value="#{pedido.id}"/>
                             </h:commandLink>
-                        </p:column>
-                        <p:column>
+                        </h:column>
+                        <h:column>
                             <f:facet name="header">Data Emissão</f:facet>
                             <h:outputText value="#{pedido.dataPedido}"/>
-                        </p:column>
+                        </h:column>
                         
-                        <p:column>
+                        <h:column>
                             <f:facet name="header">Cliente</f:facet>
                             <h:outputText value="#{pedido.cliente.nome}"/>
-                        </p:column>
+                        </h:column>
                         
-                        <p:column>
+                        <h:column>
                             <f:facet name="header">Status</f:facet>
-                            <h:outputText value="#{pedido.cliente.nome}"/>
-                        </p:column>
+                            <h:outputText value="#{pedido.status}"/>
+                        </h:column>
                         
-                        <p:column >
+                        <h:column>
+                            <f:facet name="header">Valor Desconto</f:facet>
+                            <h:outputText value="#{pedido.desconto}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Valor Total</f:facet>
+                            <h:outputText value="#{pedido.valorTotal}"/>
+                        </h:column>                        
+                        
+                        <h:column >
                             <h:commandButton value="Excluir" actionListener="#{pedidoMB.remover(pedido.id)}" styleClass="btn btn-danger"/>
-                        </p:column>        
-                    </p:dataTable>
+                        </h:column>        
+                    </h:dataTable>
                 </h:form>
             </div>
         </div>

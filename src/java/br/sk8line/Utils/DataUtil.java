@@ -1,4 +1,4 @@
-package br.sk8line.MD;
+package br.sk8line.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,7 +7,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
-public class UtilMB {
+public class DataUtil {
     
     public String formataData(Date data){
         

@@ -86,6 +86,13 @@ public class CategoriaMB implements Serializable{
         }
     }
     
+    public Categoria consultarPorId(Long id){
+        if (id==null){
+            return null;
+        }
+        return ejb.consultarPorId(id);
+    }
+     
     public String remover(Long id){
         ejb.remover(id);
         consultarTodos();

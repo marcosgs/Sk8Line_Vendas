@@ -47,9 +47,8 @@
                                 <h:outputText value="Categoria: " />
                             </div>
                             <div >
-                                <h:selectOneMenu id="categoria" value="#{produtoMB.produto.categoria}" class="form-control input-lg">
-                                    <f:selectItem itemLabel="" itemValue="" />
-                                    <f:selectItems value="#{categoriaMB.listaCategoriasItem()}" />
+                                <h:selectOneMenu id="categoria" value="#{produtoMB.produto.categoria}" converter="#{categoriaMB.consultarPorId(categoria.id)}" class="form-control input-lg">
+                                    <f:selectItems value="#{categoriaMB.categorias}" var="categoria" itemLabel="#{categoria.descricao}" itemValue="#{categoria.id}"/>
                                 </h:selectOneMenu>
                             </div>
                         </div>

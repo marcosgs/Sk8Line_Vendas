@@ -3,6 +3,7 @@ package br.sk8line.MD;
 import java.util.List;
 import br.sk8line.ejb.ClienteLocal;
 import br.sk8line.modelo.Cliente;
+import java.util.ArrayList;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -10,6 +11,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 @ManagedBean
 @SessionScoped
@@ -112,4 +114,15 @@ public class ClienteMB implements Serializable{
         return "clientes";
     }
 
+    public List<SelectItem> listaClientesItem(){
+	List<SelectItem> lista = new ArrayList<SelectItem>();
+        consultarTodos();
+        for(Cliente client : clientes){
+            SelectItem  s = new SelectItem();
+            s.setValue(client.getId());
+            s.setLabel(client.getNome());
+            lista.add(s);
+        }
+	return lista;
+    }
 }
