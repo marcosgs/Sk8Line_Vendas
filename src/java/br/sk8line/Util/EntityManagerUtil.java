@@ -1,5 +1,5 @@
 
-package br.sk8line.EM;
+package br.sk8line.Util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,7 +18,6 @@ public class EntityManagerUtil {
             em = factory.createEntityManager();
         }
         return em;
-        
     }
 }
     

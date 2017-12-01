@@ -24,7 +24,7 @@ public class CategoriaMB implements Serializable{
     
     private List<Categoria> categorias;
     
-    private List<SelectItem> listaCategoriasItem;
+    //private List<SelectItem> listaCategoriasItem;
     
     @PostConstruct
     public void init(){
