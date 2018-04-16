@@ -1,5 +1,5 @@
 
-package br.sk8line.Util;
+package br.sk8line.Utils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

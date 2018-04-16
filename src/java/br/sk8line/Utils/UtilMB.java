@@ -1,4 +1,4 @@
-package br.sk8line.Util;
+package br.sk8line.Utils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
