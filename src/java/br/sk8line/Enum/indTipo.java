@@ -2,7 +2,8 @@ package br.sk8line.Enum;
 
 public enum indTipo {
     ADMINISTRADOR("A"),
-    USUARIO("U");
+    USUARIO("U"),
+    INTEGRACAO("I");
     
     private String indTipo;
     
